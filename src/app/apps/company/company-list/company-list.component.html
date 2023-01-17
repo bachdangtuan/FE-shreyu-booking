@@ -1,0 +1,39 @@
+<!-- page title -->
+<app-page-title [breadcrumbItems]="pageTitle" title="Quản lý nhà xe"></app-page-title>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title mt-0 mb-0 header-title">Bảng sanh sách nhà xe</h5>
+        <div class="table-responsive mt-4">
+            <table class="table table-hover table-nowrap mb-0">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Tên công ty </th>
+                    <th scope="col">Trụ sở chính</th>
+                    <th scope="col">Giới thiệu</th>
+                    <th scope="col">Số lượng xe</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Hành Động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+                    <td>#98754</td>
+                    <td>image</td>
+                    <td>Công ty xe khách ABC</td>
+                    <td>124 Mỹ Đình, Nam Từ Liêm, Hà Nội</td>
+                    <td>Nhà xe đẳng cấp chuyên nghiệp và đỉnh cao đã hoạt động nhiều năm nay lắm rồi</td>
+                    <td>22</td>
+                    <td><span class="badge badge-soft-warning py-1">Tạm hoãn</span></td>
+                    <td>Xóa sửa</td>
+                </tr>
+                </tbody>
+            </table>
+        </div> <!-- end table-responsive-->
+    </div> <!-- end card-body-->
+</div>
+
+

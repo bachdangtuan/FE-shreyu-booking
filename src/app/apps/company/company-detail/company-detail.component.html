@@ -1,0 +1,34 @@
+<!-- page title -->
+<app-page-title [breadcrumbItems]="pageTitle" title="Thông tin chi tiết nhà xe"></app-page-title>
+
+<div class="row">
+    <div class="col-lg-4 col-xl-3">
+        <app-profile-company-info [user]="user"></app-profile-company-info>
+    </div>
+    <!-- end col -->
+    <div class="col-lg-8 col-xl-9">
+        <div class="card">
+            <div class="card-body">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class=" nav-pills navtab-bg nav-justified p-1">
+                    <li [ngbNavItem]="'tasks'">
+                        <a ngbNavLink>Tasks</a>
+                        <ng-template ngbNavContent>
+                            <app-company-tasks [taskList]="taskList"></app-company-tasks>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="'projects'">
+                        <a ngbNavLink>projects</a>
+                        <ng-template ngbNavContent>
+                            <app-company-vehicle [projects]="projects"></app-company-vehicle>
+                        </ng-template>
+                    </li>
+
+                </ul>
+
+                <div [ngbNavOutlet]="nav"></div>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
+<!-- end row -->

@@ -1,0 +1,87 @@
+<!-- ========== Left Sidebar Start ========== -->
+<div class="left-side-menu" (clickOutside)="hideMenu()" [exclude]="'.open-left'" [excludeBeforeClick]="true">
+    <ngx-simplebar class="h-100">
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <ul id="side-menu">
+                <ng-container *ngFor="let menu of menuItems;let i = index">
+                    <li *ngIf="menu.isTitle" class="menu-title" [class.mt-2]="i!==0">
+                        {{menu.label}}
+                    </li>
+                    <ng-container *ngIf="!menu.isTitle">
+
+                        <!-- menu item without any child -->
+                        <ng-container *ngIf="!hasSubmenu(menu)">
+                            <ng-container
+                                *ngTemplateOutlet="MenuItem;context:{menu: menu, linkClassName: 'side-nav-link-ref'}">
+                            </ng-container>
+                        </ng-container>
+
+                        <!-- menu item with child -->
+                        <ng-container *ngIf="hasSubmenu(menu)">
+                            <ng-container
+                                *ngTemplateOutlet="MenuItemWithChildren;context:{menu: menu, linkClassName: 'side-nav-link-ref', subMenuClassNames: 'nav-second-level'}">
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+
+                </ng-container>
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+    </ngx-simplebar>
+
+</div>
+<!-- Left Sidebar End -->
+
+<!-- Reusable Templates -->
+<ng-template #MenuItemWithChildren let-menu="menu" let-linkClassName="linkClassName"
+    let-subMenuClassNames="subMenuClassNames">
+    <li [ngClass]="{'menuitem-active': activeMenuItems.includes(menu.key)}">
+        <a href="javascript: void(0)" [class]="linkClassName" (click)="toggleMenuItem(menu,collapse)"
+            [attr.aria-expanded]="!menu.collapsed" [attr.data-menu-key]="menu.key">
+            <i [attr.data-feather]="menu.icon" appFeatherIcon *ngIf="menu.icon"></i>
+            <span class="badge bg-{{menu.badge.variant}} float-end" *ngIf="menu.badge">{{menu.badge.text}}</span>
+            <span>{{ menu.label }}</span>
+            <span class="menu-arrow" *ngIf="!menu.badge"></span>
+        </a>
+
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="menu.collapsed">
+            <ul [class]="subMenuClassNames">
+                <ng-container *ngFor="let child of menu.children">
+                    <ng-container *ngIf="hasSubmenu(child)">
+                        <ng-container
+                            *ngTemplateOutlet="MenuItemWithChildren;context:{menu: child, linkClassName: 'side-nav-link-ref', subMenuClassNames: 'nav-second-level'}">
+                        </ng-container>
+                    </ng-container>
+
+                    <ng-container *ngIf="!hasSubmenu(child)">
+                        <ng-container
+                            *ngTemplateOutlet="MenuItem;context:{menu: child, linkClassName: 'side-nav-link-ref'}">
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </div>
+    </li>
+</ng-template>
+
+<ng-template #MenuItem let-menu="menu" let-linkClassName="linkClassName">
+    <li [ngClass]="{'menuitem-active': activeMenuItems.includes(menu.key)}">
+        <ng-container *ngTemplateOutlet="MenuItemLink;context:{menu: menu, className: linkClassName}">
+        </ng-container>
+    </li>
+</ng-template>
+
+<ng-template #MenuItemLink let-menu="menu" let-className="className">
+    <a [routerLink]="menu.link" [class]="className" [ngClass]="{'active': activeMenuItems.includes(menu.key)}"
+        [attr.data-menu-key]="menu.key">
+        <i [attr.data-feather]="menu.icon" appFeatherIcon *ngIf="menu.icon"></i>
+        <span class="badge bg-{{menu.badge.variant}}  float-end" *ngIf="menu.badge">{{menu.badge.text}}</span>
+        <span>{{ menu.label }}</span>
+    </a>
+</ng-template>
