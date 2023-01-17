@@ -12,6 +12,7 @@ export class CompanyCreateComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        //set title web
         this.pageTitle = [{label: 'Danh sách nhà xe', path: '/'}, {label: 'Tạo mới', path: '/', active: true}];
     }
 
