@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     onSubmit(): void {
         this.formSubmitted = true;
         if (this.signUpForm.valid) {
-            const formCreateUser = this.signUpForm
+            const formCreateUser = this.signUpForm.value
             this.loading = true;
             this.authenticationService.createUser(formCreateUser)
                 .pipe(first())
@@ -60,9 +60,10 @@ export class RegisterComponent implements OnInit {
                     (data: any) => {
                         console.log('data', data)
                         // navigates to confirm mail screen
-                        // this.router.navigate(['/auth/confirm']);
+                        this.router.navigate(['/auth/confirm']).then();
                     },
                     (error: any) => {
+                        console.log('error', error)
                         this.error = error;
                         this.loading = false;
                     });

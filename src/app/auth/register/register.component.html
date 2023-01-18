@@ -20,7 +20,7 @@
     <form name="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="authentication-form">
         <app-ui-preloader [display]="loading"></app-ui-preloader>
         <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
-
+        <!--Tài khoản-->
         <div class="mb-3">
             <label class="form-label" i18n>Tài khoản</label>
             <div class="input-group">
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-
+        <!--Mật khẩu-->
         <div class="mb-3">
             <label class="form-label" i18n>Mật khẩu</label>
             <div class="input-group">
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-
+        <!--Họ tên-->
         <div class="mb-3">
             <label class="form-label" i18n>Họ tên</label>
             <div class="input-group">
@@ -80,7 +80,7 @@
                 </div>
             </div>
         </div>
-
+        <!--Địa chỉ Email-->
         <div class="mb-3">
             <label class="form-label" i18n>Địa chỉ Email</label>
             <div class="input-group">
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-
+        <!--Địa chỉ số ddiejn thoại-->
         <div class="mb-3">
             <label class="form-label" i18n>Số điện thoại</label>
             <div class="input-group">
@@ -127,7 +127,7 @@
                 </div>
             </div>
         </div>
-
+        <!--Chính sách-->
         <div class="mb-3">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="checkbox-signup" checked>

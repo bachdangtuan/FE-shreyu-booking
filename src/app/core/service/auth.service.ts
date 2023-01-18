@@ -25,8 +25,9 @@ export class AuthenticationService {
     }
 
     // đăng ký
-    public createUser(user: any): Observable<User> {
-        return this.http.post(API_URL.CREATE, user) as Observable<User>;
+    public createUser(user: any): Observable<any> {
+        console.log('user',user)
+        return this.http.post(API_URL.CREATE, user) as Observable<any>;
     }
 
 
