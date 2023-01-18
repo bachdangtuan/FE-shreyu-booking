@@ -157,7 +157,7 @@
                 <a class="nav-link dropdown-toggle nav-user me-0" href="javascript:void(0)" role="button"
                     ngbDropdownToggle>
                     <!-- <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle"> -->
-                    <img [src]="loggedInUser.avatar" alt="user-image" class="rounded-circle">
+                    <img [src]="loggedInUser.avatar" (error)="doSomethingOnError($event)" alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ms-1">
                         {{loggedInUser.name}} <i class="uil uil-angle-down"></i>
                         <!-- Nik Patel <i class="uil uil-angle-down"></i> -->
