@@ -128,7 +128,7 @@ const MENU_ITEMS: MenuItem[] = [
         ],
     },
 
-    // Voucher
+    // Tiện ích
     {key: 'apps', label: 'Quản lý tiện ích', isTitle: true},
     {
         key: 'apps-utilities',
@@ -146,6 +146,12 @@ const MENU_ITEMS: MenuItem[] = [
             {
                 key: 'utilities',
                 label: 'Gửi voucher',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-utilities',
+            },
+            {
+                key: 'utilities',
+                label: 'Tạo QR Code',
                 // link: '/apps/trip/list',
                 parentKey: 'apps-utilities',
             },
