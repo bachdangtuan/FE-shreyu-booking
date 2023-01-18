@@ -7,9 +7,9 @@ const MENU_ITEMS: MenuItem[] = [
         key: 'dashboard',
         label: 'Dashboards',
         isTitle: false,
-        icon: 'home',
+        icon: 'trello',
         collapsed: false,
-        badge: {variant: 'success', text: '02'},
+        // badge: {variant: 'success', text: '02'},
         children: [
             {
                 key: 'ds-ecommerce',
@@ -19,13 +19,14 @@ const MENU_ITEMS: MenuItem[] = [
             },
         ],
     },
-    // nhà xe
+
+    //// nhà xe
     {key: 'apps', label: 'Quản lý nhà xe', isTitle: true},
     {
         key: 'company-management',
         label: 'Quản lý nhà xe',
         isTitle: false,
-        icon: 'mail',
+        icon: 'home',
         collapsed: true,
         children: [
             {
@@ -42,6 +43,28 @@ const MENU_ITEMS: MenuItem[] = [
             },
         ],
     },
+    {
+        key: 'vehicle-management',
+        label: 'Quản lý xe',
+        isTitle: false,
+        icon: 'truck',
+        collapsed: true,
+        children: [
+            {
+                key: 'vehicle-create',
+                label: 'Tạo mới',
+                link: '/apps/vehicle/create',
+                parentKey: 'vehicle-management',
+            },
+            {
+                key: 'vehicle-list',
+                label: 'Danh sách nhà xe',
+                link: '/apps/vehicle/list',
+                parentKey: 'vehicle-management',
+            },
+        ],
+    },
+
     // chuyến đi
     {key: 'apps', label: 'Quản lý chuyến đi', isTitle: true},
     {
@@ -57,8 +80,103 @@ const MENU_ITEMS: MenuItem[] = [
                 link: '/apps/trip/list',
                 parentKey: 'apps-trip',
             },
+            {
+                key: 'log-trip',
+                label: 'Log chuyến đi',
+                link: '/apps/trip/list',
+                parentKey: 'apps-trip',
+            },
         ],
     },
+
+    //// Người dùng
+    {key: 'apps', label: 'Quản lý người dùng', isTitle: true},
+    {
+        key: 'apps-customer',
+        label: 'Khách hàng',
+        isTitle: false,
+        icon: 'users',
+        collapsed: true,
+        children: [
+            {
+                key: 'customer-list',
+                label: 'Danh sách',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-member',
+            },
+            {
+                key: 'customer-list',
+                label: 'Lịch sử tích điểm',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-member',
+            },
+        ],
+    },
+    {
+        key: 'apps-member',
+        label: 'Người dùng hệ thống',
+        isTitle: false,
+        icon: 'user',
+        collapsed: true,
+        children: [
+            {
+                key: 'member-list',
+                label: 'Danh sách',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-member',
+            },
+        ],
+    },
+
+    // Voucher
+    {key: 'apps', label: 'Quản lý tiện ích', isTitle: true},
+    {
+        key: 'apps-utilities',
+        label: 'Voucher',
+        isTitle: false,
+        icon: 'clipboard',
+        collapsed: true,
+        children: [
+            {
+                key: 'utilities',
+                label: 'Danh sách voucher',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-utilities',
+            },
+            {
+                key: 'utilities',
+                label: 'Gửi voucher',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-utilities',
+            },
+        ],
+    },
+
+
+    // Hệ thống
+    {key: 'apps', label: 'Nhật ký hệ thống', isTitle: true},
+    {
+        key: 'apps-logsys',
+        label: 'Nhật ký',
+        isTitle: false,
+        icon: 'book-open',
+        collapsed: true,
+        children: [
+            {
+                key: 'logsys',
+                label: 'Danh sách nhật ký hệ thống',
+                // link: '/apps/trip/list',
+                parentKey: 'apps-logsys',
+            },
+        ],
+    },
+
+
+
+
+
+
+
 
 
     // {key: 'apps', label: 'Apps', isTitle: true},

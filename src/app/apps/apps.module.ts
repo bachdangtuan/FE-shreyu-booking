@@ -5,6 +5,7 @@ import { AppsRoutingModule } from './apps-routing.module';
 import { CompanyComponent } from './company/company.component';
 import { TripComponent } from './trip/trip.component';
 import {PageTitleModule} from "../shared/page-title/page-title.module";
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 
 
@@ -13,7 +14,8 @@ import {PageTitleModule} from "../shared/page-title/page-title.module";
 
 
     CompanyComponent,
-        TripComponent
+        TripComponent,
+        VehicleComponent
   ],
     imports: [
         CommonModule,
