@@ -6,7 +6,7 @@ import { EventService } from './core/service/event.service';
 import { LayoutContainerComponent } from './layout/layout-container.component';
 
 
-const rootRoute = loggedInUser() ? 'dashboard/ecommerce' : 'landing';
+const rootRoute = loggedInUser() ? 'dashboard/ecommerce' : 'dashboard/ecommerce';
 
 const routes: Routes = [
   {
