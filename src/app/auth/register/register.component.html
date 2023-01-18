@@ -22,18 +22,18 @@
         <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
 
         <div class="mb-3">
-            <label class="form-label" i18n>Họ tên</label>
+            <label class="form-label" i18n>Tài khoản</label>
             <div class="input-group">
                 <span class="input-group-text">
                     <i class="icon-dual" data-feather="user" appFeatherIcon></i>
                 </span>
-                <input type="text" class="form-control" id="name" i18n-placeholder placeholder="Tên đầy đủ của bạn"
+                <input type="text" class="form-control" id="username" i18n-placeholder placeholder="Tài khoản của bạn"
                        required
-                       formControlName="name" [ngClass]="{'is-invalid': formSubmitted && formValues.name.invalid}">
+                       formControlName="username" [ngClass]="{'is-invalid': formSubmitted && formValues.name.invalid}">
 
-                <div *ngIf="formSubmitted && formValues.name.invalid" class="invalid-feedback">
-                    <div *ngIf="formValues.name.errors?.required" i18n>
-                        Vui lòng nhập tên
+                <div *ngIf="formSubmitted && formValues.username.invalid" class="invalid-feedback">
+                    <div *ngIf="formValues.username.errors?.required" i18n>
+                        Vui lòng nhập tài khoản
                     </div>
                 </div>
             </div>
@@ -59,6 +59,24 @@
                         Mật khẩu phải lớn hơn 6 ký tự
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" i18n>Họ tên</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="icon-dual" data-feather="user" appFeatherIcon></i>
+                </span>
+                <input type="text" class="form-control" id="name" i18n-placeholder placeholder="Tên đầy đủ của bạn"
+                       required
+                       formControlName="name" [ngClass]="{'is-invalid': formSubmitted && formValues.name.invalid}">
+
+                <div *ngIf="formSubmitted && formValues.name.invalid" class="invalid-feedback">
+                    <div *ngIf="formValues.name.errors?.required" i18n>
+                        Vui lòng nhập tên
+                    </div>
                 </div>
             </div>
         </div>

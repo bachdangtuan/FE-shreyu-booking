@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
             name: ['', Validators.required],
             numberPhone: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
+            username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }
@@ -51,13 +52,15 @@ export class RegisterComponent implements OnInit {
     onSubmit(): void {
         this.formSubmitted = true;
         if (this.signUpForm.valid) {
+            const formCreateUser = this.signUpForm
             this.loading = true;
-            this.authenticationService.signup(this.formValues.name?.value, this.formValues.email?.value, this.formValues.password?.value)
+            this.authenticationService.createUser(formCreateUser)
                 .pipe(first())
                 .subscribe(
                     (data: any) => {
+                        console.log('data', data)
                         // navigates to confirm mail screen
-                        this.router.navigate(['/auth/confirm']);
+                        // this.router.navigate(['/auth/confirm']);
                     },
                     (error: any) => {
                         this.error = error;

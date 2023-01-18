@@ -16,46 +16,18 @@ export class AuthenticationService {
     }
 
     /**********************************************************
-    ********************** API PHẦN USER **********************
-    ***********************************************************/
+     ********************** API PHẦN USER **********************
+     ***********************************************************/
 
     // đăng nhập
-    loginUser(user: any): Observable<any> {
+    public loginUser(user: any): Observable<any> {
         return this.http.post(API_URL.LOGIN, user) as Observable<any>;
     }
 
     // đăng ký
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public createUser(user: any): Observable<User> {
+        return this.http.post(API_URL.CREATE, user) as Observable<User>;
+    }
 
 
 
@@ -78,7 +50,7 @@ export class AuthenticationService {
      * @param password
      */
     login(email: string, password: string): any {
-        return this.http.post<any>(`/api/login`, { email, password })
+        return this.http.post<any>(`/api/login`, {email, password})
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {
