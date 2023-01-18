@@ -13,72 +13,97 @@
         </a>
     </div>
 
-    <h6 class="h5 mb-0 mt-3" i18n>Create your account</h6>
-    <p class="text-muted mt-1 mb-4" i18n>Create a free account and start using Shreyu</p>
+    <h6 class="h5 mb-0 mt-3" i18n>Tạo tài khoản mới</h6>
+    <p class="text-muted mt-1 mb-3" i18n>Tạo một tài khoản miễn phí và bắt đầu sử dụng Shreyu-Dịch vụ quản lý đặt vé
+        truyến đi trực tuyến</p>
 
     <form name="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="authentication-form">
         <app-ui-preloader [display]="loading"></app-ui-preloader>
         <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
 
         <div class="mb-3">
-            <label class="form-label" i18n>Name</label>
+            <label class="form-label" i18n>Họ tên</label>
             <div class="input-group">
                 <span class="input-group-text">
                     <i class="icon-dual" data-feather="user" appFeatherIcon></i>
                 </span>
-                <input type="text" class="form-control" id="name" i18n-placeholder placeholder="Your full name" required
-                    formControlName="name" [ngClass]="{'is-invalid': formSubmitted && formValues.name.invalid}">
+                <input type="text" class="form-control" id="name" i18n-placeholder placeholder="Tên đầy đủ của bạn"
+                       required
+                       formControlName="name" [ngClass]="{'is-invalid': formSubmitted && formValues.name.invalid}">
 
                 <div *ngIf="formSubmitted && formValues.name.invalid" class="invalid-feedback">
-
                     <div *ngIf="formValues.name.errors?.required" i18n>
-                        Name is required.
+                        Vui lòng nhập tên
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label" i18n>Email Address</label>
-            <div class="input-group">
-                <span class="input-group-text">
-                    <i class="icon-dual" data-feather="mail" appFeatherIcon></i>
-                </span>
-                <input type="email" class="form-control" required id="email" placeholder="hello@coderthemes.com"
-                    formControlName="email" [ngClass]="{'is-invalid': formSubmitted && formValues.email.invalid}">
-
-
-                <div *ngIf="formSubmitted && formValues.email.invalid" class="invalid-feedback">
-
-                    <div *ngIf="formValues.email.errors?.required" i18n>
-                        Email is required.
-                    </div>
-                    <div *ngIf="formValues.email.errors?.email" i18n>
-                        Email must be a valid Email Address
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label" i18n>Password</label>
+            <label class="form-label" i18n>Mật khẩu</label>
             <div class="input-group">
                 <span class="input-group-text">
                     <i class="icon-dual" data-feather="lock" appFeatherIcon></i>
                 </span>
                 <input type="password" class="form-control" id="password" i18n-placeholder
-                    placeholder="Enter your password" formControlName="password" required minlength="4"
-                    [ngClass]="{'is-invalid': formSubmitted && formValues.password.invalid}">
+                       placeholder="Mật khẩu của bạn" formControlName="password" required minlength="4"
+                       [ngClass]="{'is-invalid': formSubmitted && formValues.password.invalid}">
 
 
                 <div *ngIf="formSubmitted && formValues.password.invalid" class="invalid-feedback">
 
                     <div *ngIf="formValues.password.errors?.required" i18n>
-                        Password is required.
+                        Vui lòng nhập mật khẩu
                     </div>
                     <div *ngIf="formValues.password.errors?.minlength" i18n>
-                        Password length must be greater than 3.
+                        Mật khẩu phải lớn hơn 6 ký tự
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" i18n>Địa chỉ Email</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="icon-dual" data-feather="mail" appFeatherIcon></i>
+                </span>
+                <input type="email" class="form-control" required id="email" placeholder="hello@coderthemes.com"
+                       formControlName="email" [ngClass]="{'is-invalid': formSubmitted && formValues.email.invalid}">
+
+
+                <div *ngIf="formSubmitted && formValues.email.invalid" class="invalid-feedback">
+
+                    <div *ngIf="formValues.email.errors?.required" i18n>
+                        Vui lòng nhập email
+                    </div>
+                    <div *ngIf="formValues.email.errors?.email" i18n>
+                        Email phải là một địa chỉ email hợp lệ
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" i18n>Số điện thoại</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="icon-dual" data-feather="phone" appFeatherIcon></i>
+                </span>
+                <input type="email" class="form-control" required id="numberPhone" placeholder="Số điện thoại của bạn"
+                       formControlName="numberPhone"
+                       [ngClass]="{'is-invalid': formSubmitted && formValues.email.invalid}">
+
+
+                <div *ngIf="formSubmitted && formValues.email.invalid" class="invalid-feedback">
+
+                    <div *ngIf="formValues.email.errors?.required" i18n>
+                        Vui lòng nhập email
+                    </div>
+                    <div *ngIf="formValues.email.errors?.email" i18n>
+                        Email phải là một địa chỉ email hợp lệ
                     </div>
 
                 </div>
@@ -89,16 +114,18 @@
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="checkbox-signup" checked>
                 <label class="form-check-label" for="checkbox-signup" i18n>
-                    I accept <a href="javascript: void(0);">Terms and Conditions</a>
+                    Tôi chấp nhận <a href="javascript: void(0);">
+                    Các điều khoản và điều kiện</a>
                 </label>
             </div>
         </div>
 
         <div class="mb-3 text-center d-grid">
-            <button class="btn btn-primary" type="submit" i18n>Sign Up</button>
+            <button class="btn btn-primary" type="submit" i18n>Đăng ký</button>
         </div>
     </form>
 
-    <p class="text-muted" footerLink i18n>Already have account? <a [routerLink]="['../login']"
-            class="text-primary fw-bold ms-1">Login</a></p>
+    <p class="text-muted" footerLink i18n>Bạn đã có tài khoản?, quay lại đăng nhập <a [routerLink]="['../login']"
+                                                                                      class="text-primary fw-bold ms-1">Đăng
+        nhập</a></p>
 </app-default-layout>

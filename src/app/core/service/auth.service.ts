@@ -15,6 +15,53 @@ export class AuthenticationService {
     constructor(private http: HttpClient) {
     }
 
+    /**********************************************************
+    ********************** API PHẦN USER **********************
+    ***********************************************************/
+
+    // đăng nhập
+    loginUser(user: any): Observable<any> {
+        return this.http.post(API_URL.LOGIN, user) as Observable<any>;
+    }
+
+    // đăng ký
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Returns the current user
      */
@@ -41,10 +88,6 @@ export class AuthenticationService {
                 }
                 return user;
             }));
-    }
-
-    loginUser(user: any): Observable<any> {
-        return this.http.post(API_URL.LOGIN, user) as Observable<any>;
     }
 
     /**

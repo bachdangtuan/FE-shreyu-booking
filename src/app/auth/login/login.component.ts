@@ -4,6 +4,7 @@ import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AuthenticationService} from 'src/app/core/service/auth.service';
+import {TITLE} from "../../core/constants/common";
 
 @Component({
     selector: 'app-login',
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder,
         private titleService: Title
     ) {
-        titleService.setTitle("Log In | Shreyu - Responsive Angular and Bootstrap 5 Admin Dashboard Template")
+        titleService.setTitle(TITLE.LOGIN)
     }
 
     ngOnInit(): void {
