@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/';
-import { ChatMessage, ChatUser } from '../shared/chat.model';
+// import { ChatMessage, ChatUser } from '../shared/chat.model';
 import { CHATHISTORY } from '../shared/data';
 
 @Component({
@@ -11,12 +11,12 @@ import { CHATHISTORY } from '../shared/data';
 export class ChatAreaComponent implements OnInit {
 
 
-  @Input() selectedUser!: ChatUser;
-
-  loading: boolean = false;
-  chatHistory: ChatMessage[] = [];
-  toUser!: ChatUser;
-  newMessage: string = '';
+  // @Input() selectedUser!: ChatUser;
+  //
+  // loading: boolean = false;
+  // chatHistory: ChatMessage[] = [];
+  // toUser!: ChatUser;
+  // newMessage: string = '';
 
 
   @ViewChild('chatForm', { static: true }) chatForm: any;
@@ -33,38 +33,38 @@ export class ChatAreaComponent implements OnInit {
    * loads message for new chat user
    * @param changes chat user change
    */
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selectedUser.currentValue !== changes.selectedUser.previousValue) {
-      this.chatHistory = [...CHATHISTORY];
-      this.loading = true;
-      setTimeout(() => {
-
-
-        this.chatHistory = [...this.chatHistory].map((record, index) => {
-          let temp: ChatMessage = {
-            id: record.id,
-            day: record.day,
-            messages: (record.messages.filter(m => (m.to.id === this.toUser.id && m.from.id === this.selectedUser.id) || (this.toUser.id === m.from.id && m.to.id === this.selectedUser.id)))
-          }
-          return temp
-        })
-
-        this.loading = false;
-      }, 750);
-
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (changes.selectedUser.currentValue !== changes.selectedUser.previousValue) {
+  //     this.chatHistory = [...CHATHISTORY];
+  //     this.loading = true;
+  //     setTimeout(() => {
+  //
+  //
+  //       this.chatHistory = [...this.chatHistory].map((record, index) => {
+  //         let temp: ChatMessage = {
+  //           id: record.id,
+  //           day: record.day,
+  //           messages: (record.messages.filter(m => (m.to.id === this.toUser.id && m.from.id === this.selectedUser.id) || (this.toUser.id === m.from.id && m.to.id === this.selectedUser.id)))
+  //         }
+  //         return temp
+  //       })
+  //
+  //       this.loading = false;
+  //     }, 750);
+  //
+  //   }
+  // }
 
 
   /**
    * set user
    */
   initData(): void {
-    this.toUser = {
-      id: 9,
-      name: 'Shreyu N',
-      avatar: 'assets/images/users/avatar-2.jpg'
-    }
+    // this.toUser = {
+    //   id: 9,
+    //   name: 'Shreyu N',
+    //   avatar: 'assets/images/users/avatar-2.jpg'
+    // }
   }
 
   /**
@@ -79,22 +79,22 @@ export class ChatAreaComponent implements OnInit {
 
   }
 
-  /** 
-   * add new message 
+  /**
+   * add new message
    */
-  sendChatMessage(): void {
-    const modifiedMessages = [...this.chatHistory[this.chatHistory.length - 1].messages];
-    modifiedMessages.push({
-      id: modifiedMessages.length + 1,
-      from: this.toUser,
-      to: this.selectedUser,
-      messages: [
-        { type: 'text', value: this.newMessage }
-      ],
-      sendOn: new Date().getHours() + ':' + new Date().getMinutes()
-    });
-    this.chatHistory[this.chatHistory.length - 1].messages = modifiedMessages;
-    this.chatForm.resetForm();
-  }
+  // sendChatMessage(): void {
+  //   const modifiedMessages = [...this.chatHistory[this.chatHistory.length - 1].messages];
+  //   modifiedMessages.push({
+  //     id: modifiedMessages.length + 1,
+  //     from: this.toUser,
+  //     to: this.selectedUser,
+  //     messages: [
+  //       { type: 'text', value: this.newMessage }
+  //     ],
+  //     sendOn: new Date().getHours() + ':' + new Date().getMinutes()
+  //   });
+  //   this.chatHistory[this.chatHistory.length - 1].messages = modifiedMessages;
+  //   this.chatForm.resetForm();
+  // }
 
 }

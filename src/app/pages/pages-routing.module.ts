@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'tables', loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule) },
   { path: 'ui-element', loadChildren: () => import('./ui-elements/ui-elements.module').then(m => m.UiElementsModule) },
   { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule) },
-  { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) },
+  // { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) },
   { path: 'forms', loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule) }
 ];
 

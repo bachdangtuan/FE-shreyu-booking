@@ -6,15 +6,15 @@ const routes: Routes = [
     {path: 'trip', loadChildren: () => import('./trip/trip.module').then(m => m.TripModule)},
 
 
-    {path: 'calendar', loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)},
-    {path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)},
-    {path: 'email', loadChildren: () => import('./email/email.module').then(m => m.EmailModule)},
-    {path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule)},
-    {path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule)},
-    {
-        path: 'file-manager',
-        loadChildren: () => import('./file-manager/file-manager.module').then(m => m.FileManagerModule)
-    }
+    // {path: 'calendar', loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)},
+    // {path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)},
+    // {path: 'email', loadChildren: () => import('./email/email.module').then(m => m.EmailModule)},
+    // {path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule)},
+    // {path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule)},
+    // {
+    //     path: 'file-manager',
+    //     loadChildren: () => import('./file-manager/file-manager.module').then(m => m.FileManagerModule)
+    // }
 ];
 
 @NgModule({
@@ -23,3 +23,11 @@ const routes: Routes = [
 })
 export class AppsRoutingModule {
 }
+
+
+
+
+
+
+
+
