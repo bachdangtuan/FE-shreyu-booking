@@ -1,16 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
-import { User } from '../models/auth.models';
-import { loggedInUser } from '../helpers/utils';
+import {User} from '../models/auth.models';
+import {loggedInUser} from '../helpers/utils';
+import {Observable} from "rxjs";
+import {API_URL} from "../constants/url";
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthenticationService {
     user: User | null = null;
 
-    constructor (private http: HttpClient) {
+    constructor(private http: HttpClient) {
     }
 
     /**
@@ -25,11 +27,10 @@ export class AuthenticationService {
 
     /**
      * Performs the login auth
-     * @param email email of user
-     * @param password password of user
+     * @param email
+     * @param password
      */
     login(email: string, password: string): any {
-
         return this.http.post<any>(`/api/login`, { email, password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
@@ -42,6 +43,10 @@ export class AuthenticationService {
             }));
     }
 
+    loginUser(user: any): Observable<any> {
+        return this.http.post(API_URL.LOGIN, user) as Observable<any>;
+    }
+
     /**
      * Performs the signup auth
      * @param name name of user
@@ -49,11 +54,10 @@ export class AuthenticationService {
      * @param password password of user
      */
     signup(name: string, email: string, password: string): any {
-        return this.http.post<any>(`/api/signup`, { name, email, password })
+        return this.http.post<any>(`/api/signup`, {name, email, password})
             .pipe(map(user => user));
 
     }
-
 
 
     /**
