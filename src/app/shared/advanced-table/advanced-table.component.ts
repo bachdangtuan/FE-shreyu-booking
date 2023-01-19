@@ -2,16 +2,7 @@ import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, Component
 import { DomSanitizer } from '@angular/platform-browser';
 import { AdvancedTableServices } from './advanced-table-service.service';
 import { NgbSortableHeaderDirective, SortEvent } from './sortable.directive';
-
-
-export interface Column {
-  name: string;
-  label: string;
-  formatter: (a: any) => any | string;
-  sort?: boolean;
-  width?: number;
-
-}
+import {Column} from "../../core/models/common.models";
 
 
 @Component({
