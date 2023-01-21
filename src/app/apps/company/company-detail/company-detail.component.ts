@@ -25,11 +25,14 @@ export class CompanyDetailComponent implements OnInit {
     messages: Message[] = [];
     taskList: ListTaskItem[] = [];
 
+
+
     public companyDetail: any
     public active: string = 'tasks';
     public idParam!: string | number;
     public companyTrip!: Array<any>
     public vehicle!: Array<any>
+
 
     constructor(
         private authService: AuthenticationService,
@@ -46,8 +49,6 @@ export class CompanyDetailComponent implements OnInit {
     ngOnInit(): void {
         this.pageTitle = [{label: 'Company', path: '/'}, {label: 'Detail', path: '/', active: true}];
         this.getDetailCompany()
-
-
         this._fetchData();
     }
 

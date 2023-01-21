@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbNavModule, NgbProgressbarModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbNavModule, NgbPaginationModule, NgbProgressbarModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import { PageTitleModule } from 'src/app/shared/page-title/page-title.module';
 
 import { CompanyInfoComponent } from './company-info/company-info.component';
@@ -28,6 +28,7 @@ import {RouterModule} from "@angular/router";
         NgbTooltipModule,
         PageTitleModule,
         RouterModule,
+        NgbPaginationModule,
 
     ]
 })
