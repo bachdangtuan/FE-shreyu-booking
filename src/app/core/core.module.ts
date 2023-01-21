@@ -4,6 +4,7 @@ import { EventService } from './service/event.service';
 
 @NgModule({
   declarations: [
+
   ],
   imports: [
     CommonModule

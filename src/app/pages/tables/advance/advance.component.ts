@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Column } from 'src/app/shared/advanced-table/advanced-table.component';
 import { SortEvent } from 'src/app/shared/advanced-table/sortable.directive';
 import { BreadcrumbItem } from 'src/app/shared/page-title/page-title/page-title.model';
 import { PersonRecord } from './advance.model';
 import { TABLEDATA } from './data';
+import {Column} from "../../../core/models/common.models";
 
 @Component({
   selector: 'app-advance-table',

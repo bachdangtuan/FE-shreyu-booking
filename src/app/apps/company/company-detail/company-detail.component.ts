@@ -7,6 +7,8 @@ import {AuthenticationService} from 'src/app/core/service/auth.service';
 import {BreadcrumbItem} from 'src/app/shared/page-title/page-title/page-title.model';
 import {ACTIVITYTIMELINE, FILES, MESSAGES} from './data';
 import {ActivityItem, FileItem, Message, UserInfo} from './company-detail.model';
+import {CompanyService} from "../../../core/service/company.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-company-detail',
@@ -23,30 +25,41 @@ export class CompanyDetailComponent implements OnInit {
     messages: Message[] = [];
     taskList: ListTaskItem[] = [];
 
-    active: string = 'projects';
 
 
-    constructor(private authService: AuthenticationService) {
+    public companyDetail: any
+    public active: string = 'tasks';
+    public idParam!: string | number;
+    public companyTrip!: Array<any>
+    public vehicle!: Array<any>
+
+
+    constructor(
+        private authService: AuthenticationService,
+        private CompanyService: CompanyService,
+        private route: ActivatedRoute,
+    ) {
+        this.route.params.subscribe(param => {
+            const {id} = param;
+            this.idParam = id
+        })
     }
 
 
     ngOnInit(): void {
         this.pageTitle = [{label: 'Company', path: '/'}, {label: 'Detail', path: '/', active: true}];
-        let loggedInUser = this.authService.currentUser();
-        this.user = {
-            userName: loggedInUser?.name,
-            designation: loggedInUser?.title,
-            location: loggedInUser?.location,
-            avatar: loggedInUser?.avatar,
-            profileProgress: 60,
-            about: 'Hi I\'m Shreyu.I am user experience and user interface designer.I have been working on UI & UX since last 10 years.',
-            email: 'xyz123@gmail.com',
-            phone: '(123) 123 1234',
-            address: '1975 Boring Lane, San Francisco, California, United States - 94108',
-            skills: ['UI Design', 'UX', 'Sketch', 'Photoshop', 'Frontend']
-        }
-
+        this.getDetailCompany()
         this._fetchData();
+    }
+
+    getDetailCompany() {
+        this.CompanyService.getCompanyDetail(this.idParam).pipe().subscribe(res => {
+            const {trip, vehicle} = res
+            // console.log('res', res)
+            this.companyDetail = res
+            this.companyTrip = trip
+            this.vehicle = vehicle
+        })
     }
 
     /**

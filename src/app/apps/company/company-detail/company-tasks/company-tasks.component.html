@@ -1,50 +1,88 @@
-<h4 class="mt-1 fs-15 fw-bold text-uppercase">My Tasks</h4>
+<h4 class="mt-1 fs-15 fw-bold text-uppercase">Lộ Trình Khai Thác</h4>
 
 <div class="card mb-0 mt-3 border-0">
     <div class="card-body p-0">
-        <!-- task -->
-        <div class="row justify-content-sm-between" *ngFor="let task of taskList;let i=index"
-            [ngClass]="{'border-bottom': i<taskList.length-1,'mt-2 pt-1':i>0}">
-            <div class="col-lg-6 mb-2 mb-lg-0">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="task-complete-checkbox" id="task{{task.id}}"
-                        (change)="task.completed=!task.completed">
-                    <label class="form-check-label" for="task{{task.id}}">
-                        {{task.title}}
-                    </label>
-                </div> <!-- end checkbox -->
-            </div> <!-- end col -->
-            <div class="col-lg-6">
-                <div class="d-sm-flex justify-content-between">
-                    <div>
-                        <img [src]="task.assignee_avatar" alt="image" class="avatar-xs rounded-circle"
-                            placement="bottom" ngbTooltip="Assigned to {{task.assigned_to}}" />
-                    </div>
-                    <div class="mt-3 mt-sm-0">
-                        <ul class="list-inline text-sm-end">
-                            <li class="list-inline-item pe-1">
-                                <i class='uil uil-schedule me-1'></i>
-                                {{task.due_date}}
-                            </li>
-                            <li class="list-inline-item pe-1">
-                                <i class='uil uil-align-alt me-1'></i>
-                                {{task.completedTasks}}/{{task.totaltasks}}
-                            </li>
-                            <li class="list-inline-item pe-2">
-                                <i class='uil uil-comment-message me-1'></i>
-                                {{task.comments?.length}}
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="badge p-1"
-                                    [ngClass]="{'badge-soft-danger': task.priority === 'High','badge-soft-info': task.priority === 'Medium','badge-soft-success': task.priority === 'Low'}">{{
-                                    task.priority }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div> <!-- end .d-flex-->
-            </div> <!-- end col -->
+        <!--        &lt;!&ndash; task &ndash;&gt;-->
+        <!--        <div class="row justify-content-sm-between" *ngFor="let task of taskList;let i=index"-->
+        <!--             [ngClass]="{'border-bottom': i<taskList.length-1,'mt-2 pt-1':i>0}">-->
+        <!--            <div class="col-lg-6 mb-2 mb-lg-0">-->
+        <!--                <div class="form-check">-->
+        <!--                    <input type="checkbox" class="form-check-input" name="task-complete-checkbox" id="task{{task.id}}"-->
+        <!--                           (change)="task.completed=!task.completed">-->
+        <!--                    <label class="form-check-label" for="task{{task.id}}">-->
+        <!--                        {{task.title}}-->
+        <!--                    </label>-->
+        <!--                </div> &lt;!&ndash; end checkbox &ndash;&gt;-->
+        <!--            </div> &lt;!&ndash; end col &ndash;&gt;-->
+        <!--            <div class="col-lg-6">-->
+        <!--                <div class="d-sm-flex justify-content-between">-->
+        <!--                    <div>-->
+        <!--                        <img [src]="task.assignee_avatar" alt="image" class="avatar-xs rounded-circle"-->
+        <!--                             placement="bottom" ngbTooltip="Assigned to {{task.assigned_to}}"/>-->
+        <!--                    </div>-->
+        <!--                    <div class="mt-3 mt-sm-0">-->
+        <!--                        <ul class="list-inline text-sm-end">-->
+        <!--                            <li class="list-inline-item pe-1">-->
+        <!--                                <i class='uil uil-schedule me-1'></i>-->
+        <!--                                {{task.due_date}}-->
+        <!--                            </li>-->
+        <!--                            <li class="list-inline-item pe-1">-->
+        <!--                                <i class='uil uil-align-alt me-1'></i>-->
+        <!--                                {{task.completedTasks}}/{{task.totaltasks}}-->
+        <!--                            </li>-->
+        <!--                            <li class="list-inline-item pe-2">-->
+        <!--                                <i class='uil uil-comment-message me-1'></i>-->
+        <!--                                {{task.comments?.length}}-->
+        <!--                            </li>-->
+        <!--                            <li class="list-inline-item">-->
+        <!--                                <span class="badge p-1"-->
+        <!--                                      [ngClass]="{'badge-soft-danger': task.priority === 'High','badge-soft-info': task.priority === 'Medium','badge-soft-success': task.priority === 'Low'}">{{-->
+        <!--                                    task.priority }}</span>-->
+        <!--                            </li>-->
+        <!--                        </ul>-->
+        <!--                    </div>-->
+        <!--                </div> &lt;!&ndash; end .d-flex&ndash;&gt;-->
+        <!--            </div> &lt;!&ndash; end col &ndash;&gt;-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash; end task &ndash;&gt;-->
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Điểm đón khách</th>
+                        <th scope="col">Điểm đến</th>
+                        <th scope="col">Thời gian khởi hành</th>
+                        <th scope="col">Giá vé</th>
+                        <th scope="col">Số lượng khách</th>
+                        <th scope="col">Doanh thu</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let trip of paginateData">
+                        <th scope="row">{{trip.id}}</th>
+                        <td>
+                            <p class="badge-soft-danger rounded-pill badge">
+                                {{'kết thúc'}}
+                            </p>
+                        </td>
+                        <td>{{trip.from.name}}</td>
+                        <td>{{trip.to.name}}</td>
+                        <td>{{trip.startTime}}</td>
+                        <td>{{trip.price}}</td>
+                        <td>{{trip.user.length}}</td>
+                        <td>{{trip.price * trip.user.length}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- end row -->
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                                (pageChange)="getPremiumData();">
+                </ngb-pagination>
+            </div>
         </div>
-        <!-- end task -->
 
 
         <!-- end task -->
