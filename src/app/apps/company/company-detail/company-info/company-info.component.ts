@@ -3,12 +3,12 @@ import {UserInfo} from '../company-detail.model';
 
 @Component({
     selector: 'app-profile-company-info',
-    templateUrl: './personal-info.component.html',
-    styleUrls: ['./personal-info.component.scss']
+    templateUrl: './company-info.component.html',
+    styleUrls: ['./company-info.component.scss']
 })
-export class PersonalInfoComponent implements OnInit {
+export class CompanyInfoComponent implements OnInit {
 
-    @Input() user?: UserInfo = {};
+    @Input() company?: any = {};
 
     constructor() {
     }

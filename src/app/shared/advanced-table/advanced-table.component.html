@@ -23,49 +23,24 @@
 <!--</form>-->
 
 <div class="table-responsive">
-    <table id="advancd-table" class="table advanced-table table-nowrap mb-0" [class]="tableClasses" #advancedTable>
-        <thead [class]="theadClasses">
-         <tr *ngIf="!isSortable">
-                <th *ngFor="let column of columns" [style.width.px]="column.width" class="text-capitalize">
-                    {{column.label}}</th>
-                <th>Hành động</th>
-            </tr>
-
+    <table id="advancd-table" class="table advanced-table table-nowrap mb-0" #advancedTable>
+        <thead>
+        <ng-container *ngTemplateOutlet="theHeaders"></ng-container>
         </thead>
         <tbody>
-         <tr *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
-                    <td>#954</td>
-                    <td>
-                        <img class="w-100"
-                             src="https://meganhatrang.com/wp-content/uploads/2020/09/xe-kh%C3%A1ch-S%C3%A0i-G%C3%B2n-%C4%91i-Cam-Ranh-megabus-1-scaled.jpg"
-                             alt="ảnh nhà xe">
-                    </td>
-                    <td>Công ty xe khách ABC</td>
-                    <td>124 Mỹ Đình, Nam Từ Liêm, Hà Nội</td>
-                    <td>Nhà xe đẳng cấp chuyên nghiệp và đỉnh cao đã hoạt động nhiều năm nay lắm rồi</td>
-                    <td>22</td>
-                    <td>22</td>
-                    <td><span class="badge badge-soft-warning py-1">Tạm hoãn</span></td>
-                    <td>
-                        <div class="d-flex gap-1" style="cursor: pointer">
-                            <i data-feather="edit" appFeatherIcon class="icon-dual"></i>
-                            <i data-feather="trash" appFeatherIcon class="icon-dual"></i>
-                        </div>
-                    </td>
-                </tr>
+        <ng-container *ngTemplateOutlet="theContent"></ng-container>
         </tbody>
     </table>
 
-
     <div class="d-flex flex-wrap justify-content-center align-items-center justify-content-md-between mt-2"
-        *ngIf="pagination">
+         *ngIf="pagination">
         <div>
-            Showing {{service.startIndex }} to
-            {{service.endIndex}} of {{service.totalRecords}} entries
+            Hiển thị {{limit * (page - 1) }} tới
+            {{limit * (page - 1) + limit}} trong {{totalItems}}
         </div>
-        <ngb-pagination class="pagination-rounded custom-pagination" [collectionSize]="service.totalRecords"
-            [(page)]="service.page" [maxSize]="3" [rotate]="true" [pageSize]="service.pageSize"
-            (pageChange)="paginate()">
+        <ngb-pagination class="pagination-rounded custom-pagination" [collectionSize]="totalItems"
+                        [(page)]="page" [maxSize]="3" [rotate]="true" [pageSize]="limit"
+                        (pageChange)="pageChange.emit($event)">
         </ngb-pagination>
     </div>
 

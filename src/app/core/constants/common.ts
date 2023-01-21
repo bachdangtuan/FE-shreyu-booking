@@ -26,7 +26,7 @@ export const COLUMN_COMPANY = [
         name: 'company',
         label: 'Tên công ty',
         formatter: (record: CompanyModel) => record.name,
-        width: 250,
+        width: 200,
     },
     {
         name: 'office',

@@ -3,7 +3,8 @@
 
 <div class="row">
     <div class="col-lg-4 col-xl-3">
-        <app-profile-company-info [user]="user"></app-profile-company-info>
+
+        <app-profile-company-info [company]="companyDetail"></app-profile-company-info>
     </div>
     <!-- end col -->
     <div class="col-lg-8 col-xl-9">
@@ -11,13 +12,13 @@
             <div class="card-body">
                 <ul ngbNav #nav="ngbNav" [(activeId)]="active" class=" nav-pills navtab-bg nav-justified p-1">
                     <li [ngbNavItem]="'tasks'">
-                        <a ngbNavLink>Tasks</a>
+                        <a ngbNavLink>Tuyến đường chạy </a>
                         <ng-template ngbNavContent>
-                            <app-company-tasks [taskList]="taskList"></app-company-tasks>
+                            <app-company-tasks [listTrip]="companyTrip"></app-company-tasks>
                         </ng-template>
                     </li>
                     <li [ngbNavItem]="'projects'">
-                        <a ngbNavLink>projects</a>
+                        <a ngbNavLink>Danh sách phương tiện</a>
                         <ng-template ngbNavContent>
                             <app-company-vehicle [projects]="projects"></app-company-vehicle>
                         </ng-template>

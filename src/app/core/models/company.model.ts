@@ -6,8 +6,7 @@ export interface CompanyModel {
     description: string;
     office: string,
     totalCar: number;
-    createdAt: string;
-    status: string | number;
-
+    createdAt: any;
+    status: any;
     [key: string]: string | number;
 }

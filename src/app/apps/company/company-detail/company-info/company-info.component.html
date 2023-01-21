@@ -1,9 +1,9 @@
-<div class="card" *ngIf="user">
+<div class="card">
     <div class="card-body">
         <div class="text-center mt-2">
             <img src="https://vnn-imgs-f.vgcloud.vn/2021/02/22/13/kham-pha-nha-xe-sieu-tien-nghi-cua-hang-o-to-trung-quoc-saic.jpg"
-                 alt="" class="avatar-lg rounded-circle"/>
-            <h4 class="mt-4 mb-0">{{'Nhà xe Đằng Long'}}</h4>
+                 alt="" class="avatar-xl"/>
+            <h4 class="mt-4 mb-0">{{company.name}}</h4>
             <!--            <h6 class="text-muted fw-normal mt-2 mb-0">{{user.designation}}</h6>-->
             <!--            <h6 class="text-muted fw-normal mt-1 mb-3">{{user.location}}</h6>-->
             <!--            <ngb-progressbar type="success" [value]="user.profileProgress!" class="mb-3" height='14px'>-->
@@ -28,15 +28,15 @@
                     <tbody>
                     <tr>
                         <th scope="row">Email</th>
-                        <td>{{user.email}}</td>
+                        <td>{{company.email}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Phone</th>
-                        <td>{{user.phone}}</td>
+                        <td>{{company.phone}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Address</th>
-                        <td>{{user.address}}</td>
+                        <th scope="row">Địa chỉ</th>
+                        <td>{{company.address}}</td>
                     </tr>
                     </tbody>
                 </table>
