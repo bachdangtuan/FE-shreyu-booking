@@ -10,6 +10,12 @@ export const API_URL = {
     LIST_COMPANY: "http://localhost:5000/api/v1/companies/list-company",
 
 
+    //VEHICLE
+    LIST_VEHICLE: "http://localhost:5000/api/v1/vehicle/list-vehicle",
+
+
+
+
     // TRIP
     // CREATE_TRIP: "http://localhost:5000/api/v1/companies/create-company",
     LIST_TRIP: "http://localhost:5000/api/v1/trips/list-trips",

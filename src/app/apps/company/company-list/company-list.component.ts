@@ -35,6 +35,7 @@ export class CompanyListComponent implements OnInit {
     pageTitle: BreadcrumbItem[] = [];
     records: CompanyModel[] = [];
     columns: Column[] = [];
+    totalItems: any;
 
     constructor(
         public injector: Injector,
@@ -56,9 +57,6 @@ export class CompanyListComponent implements OnInit {
         // });
     }
 
-
-    // get Company
-    totalItems: any;
 
     getCompanyList() {
         const params$ = this.route.queryParams;

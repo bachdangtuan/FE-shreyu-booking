@@ -3,6 +3,9 @@ import {CommonModule} from '@angular/common';
 import {VehicleRoutingModule} from "./vehicle-routing.module";
 import {VehicleListComponent} from './vehicle-list/vehicle-list.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
+import {PageTitleModule} from "../../shared/page-title/page-title.module";
+import {AdvancedTableModule} from "../../shared/advanced-table/advanced-table.module";
+import {UiModule} from "../../shared/ui/ui.module";
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { VehicleCreateComponent } from './vehicle-create/vehicle-create.componen
     ],
     imports: [
         CommonModule,
-        VehicleRoutingModule
+        VehicleRoutingModule,
+        PageTitleModule,
+        AdvancedTableModule,
+        UiModule
     ]
 })
 export class VehicleModule {

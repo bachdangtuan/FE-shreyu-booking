@@ -8,7 +8,50 @@ export const TITLE = {
     LOGIN: `Đăng nhập | ${NAME}`,
 }
 
-// column table
+// column table vehicle
+
+export const COLUMN_VEHICLE = [
+    {
+        name: 'id',
+        label: 'ID',
+        width: 50,
+    },
+    {
+        name: 'images',
+        label: 'Hình ảnh',
+        width: 150,
+    },
+    {
+        name: 'name',
+        label: 'Tên xe',
+        width: 100,
+    },
+    {
+        name: 'type',
+        label: 'Loại xe',
+        width: 80
+    },
+    {
+        name: 'description',
+        label: 'Giới thiệu',
+    },
+    {
+        name: 'numberRegister',
+        label: 'Biển kiểm soát',
+        width: 120
+    },
+    {
+        name: 'updatedAt',
+        label: 'Ngày tạo',
+    },
+    {
+        name: 'salary',
+        label: 'Trạng thái',
+    },
+];
+
+
+// column table company
 export const COLUMN_COMPANY = [
     {
         name: 'image',
