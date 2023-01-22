@@ -47,7 +47,7 @@
         <!--        &lt;!&ndash; end task &ndash;&gt;-->
         <div class="row">
             <div class="table-responsive">
-                <table class="table mb-0">
+                <table class="table mb-3">
                     <thead class="table-dark">
                     <tr>
                         <th scope="col">#</th>
@@ -70,10 +70,10 @@
                         </td>
                         <td>{{trip.from.name}}</td>
                         <td>{{trip.to.name}}</td>
-                        <td>{{trip.startTime}}</td>
-                        <td>{{trip.price}}</td>
+                        <td>{{trip.startTime | date: 'HH:mm - dd/MM/yyyy'}}</td>
+                        <td>{{(trip.price).toLocaleString()}} ₫ </td>
                         <td>{{trip.user.length}}</td>
-                        <td>{{trip.price * trip.user.length}}</td>
+                        <td>{{(trip.price * trip.user.length).toLocaleString()}} ₫ </td>
                     </tr>
                     </tbody>
                 </table>

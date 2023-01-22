@@ -39,7 +39,7 @@
             {{limit * (page - 1) + limit}} trong {{totalItems}}
         </div>
         <ngb-pagination class="pagination-rounded custom-pagination" [collectionSize]="totalItems"
-                        [(page)]="page" [maxSize]="3" [rotate]="true" [pageSize]="limit"
+                        [(page)]="page"  [rotate]="true" [pageSize]="limit"
                         (pageChange)="pageChange.emit($event)">
         </ngb-pagination>
     </div>

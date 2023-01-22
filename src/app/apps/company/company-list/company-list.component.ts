@@ -65,7 +65,6 @@ export class CompanyListComponent implements OnInit {
         console.log('params$', params$)
         params$.subscribe(param => {
             this.CompanyService.getCompany(param).subscribe(res => {
-                console.log('res', res)
                 this.totalItems = res?.totalItems
                 this.records = res.data
                 this.limit = res.limit

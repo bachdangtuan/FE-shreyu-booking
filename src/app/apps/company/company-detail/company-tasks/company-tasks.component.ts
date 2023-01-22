@@ -12,7 +12,7 @@ export class CompanyTasksComponent implements OnInit {
     @Input() listTrip: any[] = [];
     paginateData: any[] = [];
     page = 1;
-    pageSize = 4;
+    pageSize = 8;
     collectionSize = 0;
 
     constructor() {
