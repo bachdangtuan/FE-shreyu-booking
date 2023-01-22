@@ -9,6 +9,7 @@ import {ACTIVITYTIMELINE, FILES, MESSAGES} from './data';
 import {ActivityItem, FileItem, Message, UserInfo} from './company-detail.model';
 import {CompanyService} from "../../../core/service/company.service";
 import {ActivatedRoute} from "@angular/router";
+import {TripModel} from "../../../core/models/trip";
 
 @Component({
     selector: 'app-company-detail',
@@ -17,20 +18,19 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CompanyDetailComponent implements OnInit {
 
-    pageTitle: BreadcrumbItem[] = [];
-    user?: UserInfo;
-    activities: ActivityItem[] = [];
-    projects: Project[] = [];
-    files: FileItem[] = [];
-    messages: Message[] = [];
-    taskList: ListTaskItem[] = [];
+    // user?: UserInfo;
+    // activities: ActivityItem[] = [];
+    // projects: Project[] = [];
+    // files: FileItem[] = [];
+    // messages: Message[] = [];
+    // taskList: ListTaskItem[] = [];
 
 
-
+    public pageTitle: BreadcrumbItem[] = [];
     public companyDetail: any
     public active: string = 'tasks';
     public idParam!: string | number;
-    public companyTrip!: Array<any>
+    public companyTrip!: Array<TripModel>
     public vehicle!: Array<any>
 
 
@@ -49,7 +49,7 @@ export class CompanyDetailComponent implements OnInit {
     ngOnInit(): void {
         this.pageTitle = [{label: 'Company', path: '/'}, {label: 'Detail', path: '/', active: true}];
         this.getDetailCompany()
-        this._fetchData();
+        // this._fetchData();
     }
 
     getDetailCompany() {
@@ -65,12 +65,12 @@ export class CompanyDetailComponent implements OnInit {
     /**
      * fetch data
      */
-    _fetchData(): void {
-        this.activities = ACTIVITYTIMELINE;
-        this.messages = MESSAGES;
-        this.files = FILES;
-        this.projects = PROJECTLIST;
-        this.taskList = [...TODAYTASKS, ...UPCOMINGTASKS];
-    }
+    // _fetchData(): void {
+    //     this.activities = ACTIVITYTIMELINE;
+    //     this.messages = MESSAGES;
+    //     this.files = FILES;
+    //     this.projects = PROJECTLIST;
+    //     this.taskList = [...TODAYTASKS, ...UPCOMINGTASKS];
+    // }
 
 }
