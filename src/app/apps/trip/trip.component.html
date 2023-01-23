@@ -1,41 +1,5 @@
-<!-- page title -->
-<app-page-title [breadcrumbItems]="pageTitle" title="Quản lý lộ trình"></app-page-title>
+<app-trip-list></app-trip-list>
 
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title mt-0 mb-0 header-title">Bảng lộ trình chuyến đi</h5>
-        <div class="table-responsive mt-4">
-            <table class="table table-hover table-nowrap mb-0">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Số ký hiệu </th>
-                    <th scope="col">Điểm đón khách</th>
-                    <th scope="col">Điểm trả khách</th>
-                    <th scope="col">Nhà xe phụ trách</th>
-                    <th scope="col">Giờ khởi hành</th>
-                    <th scope="col">Giá vé</th>
-                    <th scope="col">Trạng thái</th>
-                    <th scope="col">Hành Động</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
-                    <td>#98754</td>
-                    <td>VN002</td>
-                    <td>Bến xe khách Mỹ Đình</td>
-                    <td>Bến xe khách Miền Tây</td>
-                    <td>Vietnam Bus</td>
-                    <td>2022-12-26T07:06:14.000Z</td>
-                    <td>$79.49</td>
-                    <td><span class="badge badge-soft-warning py-1">Tạm hoãn</span></td>
-                    <td>Xóa sửa</td>
-                </tr>
-                </tbody>
-            </table>
-        </div> <!-- end table-responsive-->
-    </div> <!-- end card-body-->
-</div>
 
 

@@ -5657,6 +5657,13 @@
   dependencies:
     "tslib" "^1.10.0"
 
+"ngx-bootstrap-datetime-popup@^7.0.4":
+  "integrity" "sha512-OaUcajio7Lf/6loLmUtZjn3VQPKfvuW1TN15W6VfakZsFWSFZeLXPcThvGbNeq/GoNu3sd5PhgDNNxQghEfaUA=="
+  "resolved" "https://registry.npmjs.org/ngx-bootstrap-datetime-popup/-/ngx-bootstrap-datetime-popup-7.0.4.tgz"
+  "version" "7.0.4"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "ngx-dropzone@^3.0.0":
   "integrity" "sha512-rVTp/ORu7etkcwtXGtsph7sigziAr1DitnHS9JueoXPvYhhB/Ni00MuMl4MinCdU2o9Z9MWF0jzW7UrydcC71A=="
   "resolved" "https://registry.npmjs.org/ngx-dropzone/-/ngx-dropzone-3.0.0.tgz"

@@ -51,6 +51,41 @@ export const COLUMN_VEHICLE = [
 ];
 
 
+// column table trip
+
+export const COLUMN_TRIP = [
+    {
+        name: 'id',
+        label: 'ID',
+        width: 50,
+    },
+    {
+        name: 'from',
+        label: 'Điểm đón khách',
+        width: 300,
+    },
+    {
+        name: 'to',
+        label: 'Điểm đến',
+        width: 300,
+    },
+    {
+        name: 'time',
+        label: 'Thời gian khởi hành',
+        width: 150,
+    },
+    {
+        name: 'price',
+        label: 'Giá tiền',
+        width: 150,
+    },
+    {
+        name: 'status',
+        label: 'Trạng thái',
+        width: 150,
+    },
+];
+
 // column table company
 export const COLUMN_COMPANY = [
     {

@@ -1,1 +1,132 @@
-<p>vehicle-create works!</p>
+<app-page-title [breadcrumbItems]="pageTitle" title="Tạo mới nhà xe"></app-page-title>
+
+<form class="needs-validation" (submit)="submitFormCompany()" [formGroup]="validCreateCompany" #validate1="ngForm">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0">Thông tin nhà xe</h4>
+                    <div class="d-flex gap-5">
+
+
+                        <div class="col-md-5">
+                            <ngx-dropzone formControlName="avatar" (change)="onSelect($event)" [multiple]="false"
+                                          class="dropzone"
+                                          style="height: 50% !important;">
+                                <ngx-dropzone-label>
+                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
+                                    <h3>Tải ảnh lên.</h3>
+                                    <span class="text-muted font-13">(Đây chỉ là một dropzone demo. Các tập tin được chọn là
+                                <strong>không</strong> thực sự tải lên.)</span>
+                                </ngx-dropzone-label>
+                                <ng-container *ngFor="let f of files">
+                                    <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)"
+                                                          (click)="onClick($event)"
+                                                          [style.background-image]="getPreviewUrl(f)"
+                                                          [style.background-size]="'cover'"
+                                                          *ngIf="f.type.includes('image')">
+                                        <!--                                        <ngx-dropzone-label>-->
+                                        <!--                                            <div class="dz-size">{{getSize(f)}}</div>-->
+                                        <!--                                            <div class="dz-filename">{{f.name}}</div>-->
+                                        <!--                                        </ngx-dropzone-label>-->
+                                    </ngx-dropzone-preview>
+                                </ng-container>
+                                <div *ngIf="validate1.submitted && form1.avatar.valid" class="valid-feedback">
+                                    Tên hợp lệ
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.avatar.invalid" class="invalid-feedback">
+                                    Vui lòng nhập xe
+                                </div>
+                            </ngx-dropzone>
+
+                            <!--                        <div class="mt-3">-->
+                            <!--                            <h4 class="header-title">Chọn lộ trình</h4>-->
+                            <!--                        </div>-->
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom01">Tên xe</label>
+                                <input type="text" class="form-control" id="validationCustom01"
+                                       placeholder="Tên công ty"
+                                       value="Mark" required formControlName="name"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.name.valid , 'is-invalid': validate1.submitted && form1.name.invalid }">
+                                <div *ngIf="validate1.submitted && form1.name.valid" class="valid-feedback">
+                                    Tên hợp lệ
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.name.invalid" class="invalid-feedback">
+                                    Vui lòng nhập xe
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom01">Loại xe</label>
+                                <select2
+                                        formControlName="type"
+                                        [data]="countries" placeholder="Lựa chọn loại xe" id="selec2-2" #country1>
+                                </select2>
+                                <div *ngIf="validate1.submitted && form1.type.invalid" class="">
+                                    Vui lòng nhập xe
+                                </div>
+                            </div> <!-- end col -->
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom03">Driver</label>
+                                <input type="text" class="form-control" id="validationCustom03"
+                                       placeholder="Số lượng tài xế "
+                                       required
+                                       formControlName="driver"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.driver.valid , 'is-invalid': validate1.submitted && form1.driver.invalid }">
+                                <div *ngIf="validate1.submitted && form1.driver.valid" class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.driver.invalid" class="invalid-feedback">
+                                    Please driver
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom04">Biển số xe</label>
+                                <input type="text" class="form-control" id="validationCustom04"
+                                       placeholder="Biển số xe"
+                                       required
+                                       formControlName="numberRegister"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.numberRegister.valid , 'is-invalid': validate1.submitted && form1.numberRegister.invalid }">
+                                <div *ngIf="validate1.submitted && form1.numberRegister.valid" class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.numberRegister.invalid"
+                                     class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom05">Lời giới thiệu</label>
+                                <textarea type="text" class="form-control" id="validationCustom05"
+                                          placeholder="Lời giới thiệu về công ty"
+                                          required
+                                          formControlName="description"
+                                          [ngClass]="{ 'is-valid': validate1.submitted && form1.description.valid , 'is-invalid': validate1.submitted && form1.description.invalid }">
+                                </textarea>
+
+                                <div *ngIf="validate1.submitted && form1.description.valid" class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.description.invalid" class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </div>
+
+
+                    </div>
+
+
+                </div> <!-- end card-body -->
+            </div> <!-- end card-->
+        </div><!-- end col -->
+    </div>
+</form>

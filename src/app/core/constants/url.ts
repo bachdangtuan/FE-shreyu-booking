@@ -12,12 +12,15 @@ export const API_URL = {
 
     //VEHICLE
     LIST_VEHICLE: "http://localhost:5000/api/v1/vehicle/list-vehicle",
+    CREATE_VEHICLE: "http://localhost:5000/api/v1/vehicle/create-vehicle",
 
 
+    //STATION
+    LIST_STATION: "http://localhost:5000/api/v1/stations",
 
 
     // TRIP
-    // CREATE_TRIP: "http://localhost:5000/api/v1/companies/create-company",
+    CREATE_TRIP: "http://localhost:5000/api/v1/trips/create-trip",
     LIST_TRIP: "http://localhost:5000/api/v1/trips/list-trips",
 }
 
