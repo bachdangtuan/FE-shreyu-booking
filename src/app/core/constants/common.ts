@@ -1,4 +1,5 @@
 import {CompanyModel} from "../models/company.model";
+import {Select2Data} from "ng-select2-component";
 
 const NAME = 'Shreyu - Dịch vụ quản lý đặt vé truyến đi trực tuyến'
 
@@ -77,7 +78,17 @@ export const COLUMN_TRIP = [
     {
         name: 'price',
         label: 'Giá tiền',
-        width: 150,
+        width: 100,
+    },
+    {
+        name: 'quantity',
+        label: 'Số lượng khách',
+        width: 100,
+    },
+    {
+        name: 'totalPrice',
+        label: 'Tổng số tiền',
+        width: 100,
     },
     {
         name: 'status',
@@ -134,3 +145,32 @@ export const COLUMN_COMPANY = [
         formatter: (record: CompanyModel) => record.status,
     },
 ];
+
+// status
+export const STATUS_CONTENT = {
+    DANG_TIEN_HANH: 'Đang tiến hành',
+    CHUA_SAN_SANG: 'Chưa sẵn sàng',
+    SAN_SANG: 'Đã sẵn sàng',
+    DA_HOAN_THANH: 'Đã hoàn thành',
+    TAT_CA: 'Tất cả',
+}
+
+export const STATUS_VALUE = {
+    DANG_TIEN_HANH: '4',
+    CHUA_SAN_SANG: '2',
+    SAN_SANG: '1',
+    DA_HOAN_THANH: '3',
+    TAT_CA: '10',
+}
+export const STATUS: Select2Data = [
+    {
+        label: '',
+        options: [
+            {value: STATUS_VALUE.SAN_SANG, label: STATUS_CONTENT.SAN_SANG},
+            {value: STATUS_VALUE.CHUA_SAN_SANG, label: STATUS_CONTENT.CHUA_SAN_SANG},
+            {value: STATUS_VALUE.DANG_TIEN_HANH, label: STATUS_CONTENT.DANG_TIEN_HANH},
+            {value: STATUS_VALUE.DA_HOAN_THANH, label: STATUS_CONTENT.DA_HOAN_THANH},
+            {value: STATUS_VALUE.TAT_CA, label: STATUS_CONTENT.TAT_CA}
+        ]
+    }
+]

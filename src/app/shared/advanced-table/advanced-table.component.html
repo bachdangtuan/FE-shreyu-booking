@@ -38,8 +38,10 @@
             Hiển thị {{limit * (page - 1) }} tới
             {{limit * (page - 1) + limit}} trong {{totalItems}}
         </div>
-        <ngb-pagination class="pagination-rounded custom-pagination" [collectionSize]="totalItems"
-                        [(page)]="page"  [rotate]="true" [pageSize]="limit"
+        <ngb-pagination [boundaryLinks]="true" class="pagination-rounded custom-pagination"
+                        [collectionSize]="totalItems"
+                        [maxSize]="4"
+                        [(page)]="page" [rotate]="true" [pageSize]="limit"
                         (pageChange)="pageChange.emit($event)">
         </ngb-pagination>
     </div>
