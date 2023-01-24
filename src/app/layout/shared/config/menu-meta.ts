@@ -89,7 +89,7 @@ const MENU_ITEMS: MenuItem[] = [
             {
                 key: 'log-trip',
                 label: 'Log chuyến đi',
-                link: '/apps/trip/list',
+                // link: '/apps/trip/list',
                 parentKey: 'apps-trip',
             },
         ],

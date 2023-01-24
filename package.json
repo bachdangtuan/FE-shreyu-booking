@@ -28,6 +28,7 @@
     "@fullcalendar/list": "^5.10.0",
     "@fullcalendar/timegrid": "^5.10.0",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0-beta.2",
+    "@ng-select/ng-select": "^7.4.0",
     "@ngneat/bind-query-params": "^5.0.0",
     "@types/feather-icons": "^4.7.0",
     "@types/googlemaps": "3.39.12",
@@ -53,8 +54,8 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.1.3",
-    "@angular/cli": "~12.1.3",
+    "@angular-devkit/build-angular": "^15.1.2",
+    "@angular/cli": "^13.3.10",
     "@angular/compiler-cli": "~12.1.0-",
     "@angular/localize": "^12.1.5",
     "@types/jasmine": "~3.8.0",

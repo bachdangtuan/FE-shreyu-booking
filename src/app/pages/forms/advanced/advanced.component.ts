@@ -148,4 +148,8 @@ export class AdvancedComponent implements OnInit {
         : this.statesList.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
     );
   }
+
+  test($event: Event) {
+    console.log('hihi')
+  }
 }

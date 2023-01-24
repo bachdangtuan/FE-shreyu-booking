@@ -9,7 +9,6 @@ export const TITLE = {
 }
 
 // column table vehicle
-
 export const COLUMN_VEHICLE = [
     {
         name: 'id',
@@ -50,9 +49,7 @@ export const COLUMN_VEHICLE = [
     },
 ];
 
-
 // column table trip
-
 export const COLUMN_TRIP = [
     {
         name: 'id',
@@ -76,8 +73,18 @@ export const COLUMN_TRIP = [
     },
     {
         name: 'price',
-        label: 'Giá tiền',
-        width: 150,
+        label: 'Giá vé',
+        width: 100,
+    },
+    {
+        name: 'price',
+        label: 'Số lượng khách',
+        width: 100,
+    },
+    {
+        name: 'price',
+        label: 'Tổng doanh thu',
+        width: 100,
     },
     {
         name: 'status',
@@ -134,3 +141,12 @@ export const COLUMN_COMPANY = [
         formatter: (record: CompanyModel) => record.status,
     },
 ];
+
+// Trạng thái
+export const STATUS = {
+    DA_SAN_SANG: 'Đã sẵn sàng',
+    CHUA_SAN_SANG: 'Chưa sẵn sàng',
+    DA_HOAN_THANH: 'Đã hoàn thành',
+    DANG_TIEN_HANH: 'Đang tiến hành',
+}
+

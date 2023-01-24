@@ -58,7 +58,7 @@
 
                 </form>
                 <div class="pt-3">
-                    <input type="file" class="browse-btn" (change)="readFile($event)" accept=".xlsx">
+                    <input type="file" class="browse-btn" #fileUploader (change)="readFile($event)" accept=".xlsx">
                     <button class="btn btn-success" (click)="uploadFile()" [disabled]="isActive">
                         Upload Excel
                     </button>

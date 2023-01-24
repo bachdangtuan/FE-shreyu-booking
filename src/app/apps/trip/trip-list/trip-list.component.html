@@ -13,6 +13,11 @@
                         </p>
                     </div>
 
+                    <div>
+
+                        <select2 [data]="status" (change)="selectStatus($event)" placeholder="Lọc trạng thái"></select2>
+
+                    </div>
 
                 </div>
 
@@ -47,6 +52,8 @@
                             </td>
                             <td>{{i.startTime | date: 'HH:mm - dd/MM/yyyy'}}</td>
                             <td>{{(i.price).toLocaleString()}} ₫</td>
+                            <td>{{(i.user.length)}} </td>
+                            <td>{{ ((i.price) * (i.user.length)).toLocaleString()}} ₫</td>
                             <td>
                                 <div [ngSwitch]="i?.status">
                                     <p class="badge badge-soft-info py-1" *ngSwitchCase="1">Sẵn sàng</p>
@@ -54,10 +61,6 @@
                                     <p class="badge badge-soft-success py-1" *ngSwitchCase="3">Đã hoàn thành</p>
                                     <p class="badge badge-soft-warning py-1" *ngSwitchDefault>Đang tiến hành</p>
                                 </div>
-                                <!--                                <span *ngIf="i?.status === 1; else active" class="badge badge-soft-danger py-1">Chưa hoạt động</span>-->
-                                <!--                                <ng-template #active>-->
-                                <!--                                    <span class="badge badge-soft-success py-1">Đang hoạt động</span>-->
-                                <!--                                </ng-template>-->
                             </td>
                             <!--                            <td>-->
                             <!--                                <div class="d-flex gap-1" style="cursor: pointer">-->

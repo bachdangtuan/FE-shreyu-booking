@@ -1,14 +1,12 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {BreadcrumbItem} from "../../../shared/page-title/page-title/page-title.model";
-import {CompanyModel} from "../../../core/models/company.model";
-import {Column} from "../../../core/models/common.models";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormSearchCompanyHelper} from "../../../core/helpers/formSearchCompany.helper";
 import {SyncQueryParam} from "../../../core/decorators/syncParams.decorator";
 import {FormGroup} from "@angular/forms";
-import {COLUMN_TRIP} from "../../../core/constants/common";
+import {COLUMN_TRIP, STATUS} from "../../../core/constants/common";
 import {TripService} from "../../../core/service/trip.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {FormSearchTripHelper} from "../../../core/helpers/formSearchTrip.helper";
 
 @Component({
     selector: 'app-trip-list',
@@ -26,11 +24,12 @@ export class TripListComponent implements OnInit {
     records: any[] = [];
     columns: any[] = [];
     totalItems: any;
+    status: any;
 
     constructor(
         public injector: Injector,
         private route: ActivatedRoute,
-        private formService: FormSearchCompanyHelper,
+        private formService: FormSearchTripHelper,
         private TripService: TripService,
         public router: Router,
         private _NgbModal: NgbModal
@@ -41,6 +40,16 @@ export class TripListComponent implements OnInit {
         this.getCompanyList()
     }
 
+    ngOnInit(): void {
+        this.pageTitle = [{label: 'Danh sách lộ trình', path: '/', active: true}];
+        this.status = [
+            {value: '1', label: STATUS.DA_HOAN_THANH},
+            {value: '2', label: STATUS.CHUA_SAN_SANG},
+            {value: '3', label: STATUS.DA_HOAN_THANH},
+            {value: '4', label: STATUS.DANG_TIEN_HANH},
+        ]
+
+    }
 
     getCompanyList() {
         const params$ = this.route.queryParams;
@@ -65,8 +74,8 @@ export class TripListComponent implements OnInit {
         this.columns = COLUMN_TRIP
     }
 
-    ngOnInit(): void {
-        this.pageTitle = [{label: 'Danh sách lộ trình', path: '/', active: true}];
+    selectStatus(event: any) {
+        console.log(event.value); // giá trị mới
+        // Xử lý logic tại đây
     }
-
 }

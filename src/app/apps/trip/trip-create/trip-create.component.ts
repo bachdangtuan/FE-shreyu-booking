@@ -1,4 +1,4 @@
-import {Component, Injector, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Injector, Input, OnInit, ViewChild} from '@angular/core';
 import {StationService} from "../../../core/service/station.service";
 import {catchError, map} from "rxjs/operators";
 import {noop, throwError} from "rxjs";
@@ -20,7 +20,7 @@ export class TripCreateComponent implements OnInit {
 
     @ViewChild(NgbPopover)
     private popover!: NgbPopover;
-
+    @ViewChild('fileUploader') fileUploader!: ElementRef;
     @Input() dateString!: string;
     @Input() inputDatetimeFormat = 'M/d/yyyy H:mm:ss';
     @Input() hourStep = 1;
@@ -210,10 +210,12 @@ export class TripCreateComponent implements OnInit {
     }
 
     uploadFile() {
+        this.fileUploader.nativeElement.value = null;
         this.TripService.importTrip(this.fileUpload).subscribe(
             data => {
                 console.log(data)
             }
         )
+        this.isActive = true
     }
 }
