@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {Observable} from "rxjs";
 import {API_URL} from "../constants/url";
 
+const httpOptions = {
+    headers: new HttpHeaders({
+        "Content-Type": "multipart/form-data; "// 👈
+    })
+};
 
 @Injectable({providedIn: 'root'})
 export class CompanyService {
@@ -28,9 +33,11 @@ export class CompanyService {
     }
 
 
-    /**********************************************************
-     **********************END API PHẦN USER **********************
-     ***********************************************************/
+    public createCompany(form: any): Observable<any> {
+        console.log('form', form)
+        return this.http.post(API_URL.CREATE_COMPANY, form
+        ) as Observable<any>
+    }
 
 }
 

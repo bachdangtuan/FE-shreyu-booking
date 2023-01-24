@@ -27,7 +27,7 @@
                         </p>
 
                         <select2 [data]="countries" placeholder="Select Country" id="selec2-2" multiple="true"
-                            #country2>
+                                 #country2>
                         </select2>
                     </div> <!-- end col -->
                 </div> <!-- end row -->
@@ -51,8 +51,8 @@
                         <div class="mb-3 position-relative" id="datepicker1">
                             <label class="form-label">Date Picker</label>
                             <input type="text" class="form-control" name="datepicker1" [(ngModel)]="model1"
-                                ngbDatepicker #datepicker1="ngbDatepicker" [footerTemplate]="footerTemplate"
-                                (click)="datepicker1.toggle()" autoClose="'outside'">
+                                   ngbDatepicker #datepicker1="ngbDatepicker" [footerTemplate]="footerTemplate"
+                                   (click)="datepicker1.toggle()" autoClose="'outside'">
                         </div>
 
                         <ng-template #footerTemplate>
@@ -65,8 +65,8 @@
 
                         <ng-template #t let-date let-focused="focused">
                             <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
-                                [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
-                                (mouseleave)="hoveredDate = null">
+                                  [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+                                  (mouseleave)="hoveredDate = null">
                                 {{ date.day }}
                             </span>
                         </ng-template>
@@ -75,9 +75,10 @@
                             <label class="form-label">Date Range</label>
 
                             <input type="text" class="form-control date" id="dash-daterange" style="min-width: 210px;"
-                                [value]="selectedDateRange" ngbDatepicker #datepicker8="ngbDatepicker"
-                                (dateSelect)="onDateSelection($event)" [dayTemplate]="t" (click)="datepicker8.toggle()"
-                                autoClose="'outside'">
+                                   [value]="selectedDateRange" ngbDatepicker #datepicker8="ngbDatepicker"
+                                   (dateSelect)="onDateSelection($event)" [dayTemplate]="t"
+                                   (click)="datepicker8.toggle()"
+                                   autoClose="'outside'">
                         </div>
                     </div>
 
@@ -85,7 +86,7 @@
                         <div class="mb-3">
                             <label class="form-label">Inline Datepicker</label>
                             <div>
-                                <ngb-datepicker #datepicker7 [(ngModel)]="model2"></ngb-datepicker>
+                                <ngb-datepicker [(ngModel)]="model2"></ngb-datepicker>
                             </div>
                         </div>
                     </div>
@@ -114,7 +115,7 @@
                         <div class="mb-3">
                             <label class="form-label">The Basics</label>
                             <input id="typeahead-basic" type="text" class="form-control position-relative"
-                                [ngbTypeahead]="search1" />
+                                   [ngbTypeahead]="search1"/>
                         </div>
                     </div> <!-- end col -->
 
@@ -123,8 +124,8 @@
                         <div class="mb-3">
                             <label class="form-label">Custom Templates</label>
                             <input id="typeahead-custom" type="text" class="form-control" placement="auto"
-                                placeholder="States of USA" [(ngModel)]="typeaheadModel" [ngbTypeahead]="search1"
-                                [resultFormatter]="formatter" />
+                                   placeholder="States of USA" [(ngModel)]="typeaheadModel" [ngbTypeahead]="search1"
+                                   [resultFormatter]="formatter"/>
                         </div>
                     </div> <!-- end col -->
 
@@ -132,8 +133,8 @@
                         <div class="mb-3">
                             <label class="form-label">Open on focus</label>
                             <input id="typeahead-focus" type="text" class="form-control position-relative"
-                                [ngbTypeahead]="search" (focus)="focus$.next($any($event).target.value)"
-                                (click)="click$.next($any($event).target.value)" #instance="ngbTypeahead" />
+                                   [ngbTypeahead]="search" (focus)="focus$.next($any($event).target.value)"
+                                   (click)="click$.next($any($event).target.value)" #instance="ngbTypeahead"/>
 
                         </div>
                     </div> <!-- end col -->
@@ -173,7 +174,7 @@
                                 <ngb-timepicker [(ngModel)]="time2" [meridian]="meridian"></ngb-timepicker>
                             </div>
                             <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}"
-                                (click)="toggleMeridian()">
+                                    (click)="toggleMeridian()">
                                 Meridian - {{meridian ? "ON" : "OFF"}}
                             </button>
 
@@ -194,7 +195,7 @@
                                 <ngb-timepicker [(ngModel)]="time4" [spinners]="spinners"></ngb-timepicker>
                             </div>
                             <button class="mt-1 btn btn-sm btn-outline-{{spinners ? 'success' : 'danger'}}"
-                                (click)="toggleSpinners()">
+                                    (click)="toggleSpinners()">
                                 Spinners - {{spinners ? "ON" : "OFF"}}
                             </button>
 

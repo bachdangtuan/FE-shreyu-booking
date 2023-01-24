@@ -6,67 +6,12 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title mt-0">Thông tin nhà xe</h4>
+                <div class="d-flex gap-5">
 
-
-                <form class="needs-validation row" [formGroup]="validationGroup1" #validate1="ngForm">
-                    <div class="col-md-7">
-                        <div class="mb-3">
-                            <label class="form-label" for="validationCustom01">Tên nhà xe</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
-                                   value="Mark" required formControlName="name"
-                                   [ngClass]="{ 'is-valid': validate1.submitted && form1.firstName.valid , 'is-invalid': validate1.submitted && form1.firstName.invalid }">
-                            <div *ngIf="validate1.submitted && form1.firstName.valid" class="valid-feedback">
-                                Looks good!
-                            </div>
-
-                            <div *ngIf="validate1.submitted && form1.firstName.invalid" class="invalid-feedback">
-                                Please enter first name.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="validationCustom03">Địa chỉ</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="City" required
-                                   formControlName="address"
-                                   [ngClass]="{ 'is-valid': validate1.submitted && form1.city.valid , 'is-invalid': validate1.submitted && form1.city.invalid }">
-                            <div *ngIf="validate1.submitted && form1.city.valid" class="valid-feedback">
-                                Looks good!
-                            </div>
-
-                            <div *ngIf="validate1.submitted && form1.city.invalid" class="invalid-feedback">
-                                Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="validationCustom05">Lời giới thiệu </label>
-                            <textarea type="text-area" class="form-control" id="validationCustom05" placeholder="Zip" required
-                                   formControlName="description"
-                                   [ngClass]="{ 'is-valid': validate1.submitted && form1.zip.valid , 'is-invalid': validate1.submitted && form1.zip.invalid }"></textarea>
-
-                            <div *ngIf="validate1.submitted && form1.zip.valid" class="valid-feedback">
-                                Looks good!
-                            </div>
-
-                            <div *ngIf="validate1.submitted && form1.zip.invalid" class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="invalidCheck" required
-                                       formControlName="acceptTerms"
-                                       [ngClass]="{ 'is-invalid': validate1.submitted && form1.acceptTerms.invalid }">
-                                <label class="form-check-label" for="invalidCheck">Agree to terms and conditions</label>
-                                <div *ngIf="validate1.submitted && form1.acceptTerms.invalid" class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Tạo mới</button>
-                    </div>
 
                     <div class="col-md-5">
                         <ngx-dropzone (change)="onSelect($event)" [multiple]="false" class="dropzone"
-                                      style="height: 100% !important;">
+                                      style="height: 50% !important;">
                             <ngx-dropzone-label>
                                 <i class="h1 text-muted dripicons-cloud-upload"></i>
                                 <h3>Tải ảnh lên.</h3>
@@ -86,10 +31,96 @@
                                 </ngx-dropzone-preview>
                             </ng-container>
                         </ngx-dropzone>
+
+                        <div class="mt-3">
+                            <h4 class="header-title">Chọn lộ trình</h4>
+                        </div>
                     </div>
-                </form>
+
+                    <div class="col-md-6">
+                        <form class="needs-validation" (submit)="submitFormCompany()" [formGroup]="validCreateCompany"
+                              #validate1="ngForm">
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom01">Tên Công ty</label>
+                                <input type="text" class="form-control" id="validationCustom01"
+                                       placeholder="Tên công ty"
+                                       value="Mark" required formControlName="name"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.name.valid , 'is-invalid': validate1.submitted && form1.name.invalid }">
+                                <div *ngIf="validate1.submitted && form1.name.valid" class="valid-feedback">
+                                    Tên hợp lệ
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.name.invalid" class="invalid-feedback">
+                                    Vui lòng nhập tên công ty
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom02">Email</label>
+                                <input type="text" id="validationCustom02" placeholder="Email công ty"
+                                       formControlName="email" class="form-control"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.email.valid , 'is-invalid': validate1.submitted && form1.email.invalid }"
+                                />
+                                <div *ngIf="validate1.submitted && form1.email.valid" class="valid-feedback">
+                                    Tên hợp lệ
+                                </div>
+                                <div *ngIf="validate1.submitted && form1.email.errors" class="invalid-feedback">
+                                    <div *ngIf="form1.email.errors.required">Email is required</div>
+                                    <div *ngIf="form1.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom03">Phone</label>
+                                <input type="text" class="form-control" id="validationCustom03"
+                                       placeholder="Số điện thoại"
+                                       required
+                                       formControlName="phone"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.phone.valid , 'is-invalid': validate1.submitted && form1.phone.invalid }">
+                                <div *ngIf="validate1.submitted && form1.phone.valid" class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.phone.invalid" class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom04">Địa chỉ</label>
+                                <input type="text" class="form-control" id="validationCustom04"
+                                       placeholder="Địa chỉ công ty"
+                                       required
+                                       formControlName="address"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.address.valid , 'is-invalid': validate1.submitted && form1.address.invalid }">
+                                <div *ngIf="validate1.submitted && form1.address.valid" class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.address.invalid" class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="validationCustom05">Lời giới thiệu</label>
+                                <textarea type="text" class="form-control" id="validationCustom05"
+                                          placeholder="Lời giới thiệu về công ty"
+                                          required
+                                          formControlName="description"
+                                          [ngClass]="{ 'is-valid': validate1.submitted && form1.description.valid , 'is-invalid': validate1.submitted && form1.description.invalid }">
+                                </textarea>
+
+                                <div *ngIf="validate1.submitted && form1.description.valid" class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div *ngIf="validate1.submitted && form1.description.invalid" class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </form>
+                    </div>
 
 
+                </div>
 
 
             </div> <!-- end card-body -->
@@ -97,4 +128,16 @@
     </div><!-- end col -->
 </div>
 <!-- end row -->
-
+<!--<div class="container">-->
+<!--    <form [formGroup]="form" (ngSubmit)="submitForm()">-->
+<!--        <div class="form-group">-->
+<!--            <input type="file" (change)="uploadFile($event)">-->
+<!--        </div>-->
+<!--        <div class="form-group input-group-lg">-->
+<!--            <input class="form-control" placeholder="Name" formControlName="name">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <button class="btn btn-danger btn-block btn-lg">Create</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->

@@ -1,0 +1,82 @@
+<!-- page title -->
+<app-page-title [breadcrumbItems]="pageTitle" title="Quản lý lộ trình"></app-page-title>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="header-title">Danh sách lộ trình </h4>
+                        <p class="text-muted font-14">
+                            Danh sách các lộ trình
+                        </p>
+                    </div>
+
+
+                </div>
+
+
+                <!-- table start -->
+                <app-advanced-table
+                        [totalItems]="totalItems"
+                        [page]="pageCurrent"
+                        [limit]="limit"
+                        [pagination]="true"
+                        [hasRowSelection]="true"
+                        (pageChange)="updatePage($event)"
+                >
+                    <ng-template #theHeaders>
+                        <tr>
+                            <th *ngFor="let column of columns" [style.width.px]="column.width" class="text-capitalize">
+                                {{column.label}}</th>
+                            <!--                            <th>Hành động</th>-->
+                        </tr>
+                    </ng-template>
+
+                    <ng-template #theContent>
+                        <tr *ngFor="let i of records">
+                            <td>{{i.id}}</td>
+                            <td>
+                                <p class="m-0">{{i.from.name}}</p>
+                                <small>{{i.from.address}}</small>
+                            </td>
+                            <td>
+                                <p class="m-0">{{i.to.name}}</p>
+                                <small>{{i.to.address}}</small>
+                            </td>
+                            <td>{{i.startTime | date: 'HH:mm - dd/MM/yyyy'}}</td>
+                            <td>{{(i.price).toLocaleString()}} ₫</td>
+                            <td>
+                                <div [ngSwitch]="i?.status">
+                                    <p class="badge badge-soft-info py-1" *ngSwitchCase="1">Sẵn sàng</p>
+                                    <p class="badge badge-soft-danger py-1" *ngSwitchCase="2">Chưa sẵn sàng</p>
+                                    <p class="badge badge-soft-success py-1" *ngSwitchCase="3">Đã hoàn thành</p>
+                                    <p class="badge badge-soft-warning py-1" *ngSwitchDefault>Đang tiến hành</p>
+                                </div>
+                                <!--                                <span *ngIf="i?.status === 1; else active" class="badge badge-soft-danger py-1">Chưa hoạt động</span>-->
+                                <!--                                <ng-template #active>-->
+                                <!--                                    <span class="badge badge-soft-success py-1">Đang hoạt động</span>-->
+                                <!--                                </ng-template>-->
+                            </td>
+                            <!--                            <td>-->
+                            <!--                                <div class="d-flex gap-1" style="cursor: pointer">-->
+                            <!--                                    <button class="btn">-->
+                            <!--                                        <i data-feather="edit" appFeatherIcon class="icon-dual"></i>-->
+                            <!--                                    </button>-->
+                            <!--                                    <button class="btn">-->
+                            <!--                                        <i data-feather="trash" appFeatherIcon class="icon-dual"></i>-->
+                            <!--                                    </button>-->
+                            <!--                                </div>-->
+                            <!--                            </td>-->
+                        </tr>
+                    </ng-template>
+
+                </app-advanced-table>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+<!-- end row-->
+
+

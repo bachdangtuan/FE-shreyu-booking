@@ -1,0 +1,127 @@
+<app-page-title [breadcrumbItems]="pageTitle" title="Tạo mới lộ trình"></app-page-title>
+<div class="row">
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>Tạo chuyến đi</h3>
+                <form [formGroup]="validCreateTrip" #validate1="ngForm">
+                    <div>
+                        <label class="form-label">Điểm đón khách</label>
+                        <select2 [data]="stations"
+                                 formControlName="fromStation"
+                                 placeholder="Chọn điểm đón khách" id="select2-2"></select2>
+                        <small class="text-danger"
+                               *ngIf="validate1.submitted && form1.fromStation.invalid">Vui lòng chọn điểm đi</small>
+                    </div>
+
+                    <div class="pt-3">
+                        <label class="form-label">Điểm trả khách</label>
+                        <select2 [data]="stations"
+                                 formControlName="toStation"
+                                 placeholder="Chọn điểm đón khách" id="select2-1"></select2>
+                        <small class="text-danger"
+                               *ngIf="validate1.submitted && form1.toStation.invalid">Vui lòng chọn điểm đi</small>
+                    </div>
+
+                    <div class="pt-3">
+                        <label class="form-label">Giá tiền</label>
+                        <input type="number"
+                               formControlName="price"
+                               [ngClass]="{ 'is-valid': validate1.submitted && form1.price.valid , 'is-invalid': validate1.submitted && form1.price.invalid }"
+                               class="form-control" placeholder="Giá chuyến đi">
+                        <div *ngIf="validate1.submitted && form1.price.invalid" class="invalid-feedback">
+                            Vui lòng nhập giá tiền
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">Giờ khởi hành</label>
+                            <div class="input-group mr-2">
+                                <input class="form-control" (blur)="inputBlur($event)"
+                                       formControlName="startTime"
+                                       [ngClass]="{ 'is-valid': validate1.submitted && form1.startTime.valid , 'is-invalid': validate1.submitted && form1.startTime.invalid }"
+                                       (change)="onInputChange($event)"/>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" [ngbPopover]="calendarContent"
+                                            [disabled]='disabled' type="button">
+                                        Chọn
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <button class="btn btn-danger me-2">Clear</button>
+                        <button class="btn btn-primary" (click)="createTrip()">Tạo chuyến đi</button>
+                    </div>
+
+                </form>
+                <div class="pt-3">
+                    <input type="file" class="browse-btn" (change)="readFile($event)" accept=".xlsx">
+                    <button class="btn btn-success" (click)="uploadFile()" [disabled]="isActive">
+                        Upload Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>Tạo bến xe</h3>
+                <form>
+                    <div>
+                        <label class="form-label">Điểm đón khách</label>
+                        <select2 [data]="stations" placeholder="Chọn điểm đón khách" id="selec2-2"></select2>
+                    </div>
+
+                    <div class="pt-3">
+                        <label class="form-label">Điểm trả khách</label>
+                        <select2 [data]="stations" placeholder="Chọn điểm đón khách" id="selec2-1"></select2>
+                    </div>
+
+                    <div class="pt-3">
+                        <label class="form-label">Giá tiền</label>
+                        <input type="number" class="form-control" placeholder="Giá chuyến đi">
+                    </div>
+                    <div class="pt-3">
+                        <label class="form-label">Giờ khởi hành</label>
+                        <input type="number" class="form-control" placeholder="Giá chuyến đi">
+                    </div>
+                    <div class="pt-3">
+                        <button class="btn btn-danger me-2">Clear</button>
+                        <button class="btn btn-primary">Tạo chuyến đi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #calendarContent>
+    <div>
+        <div *ngIf="!showTimePickerToggle">
+            <ngb-datepicker #dp name="datepicker" [ngModel]="datetime"
+                            (ngModelChange)="onDateChange($event)"></ngb-datepicker>
+            <button class="btn btn-block btn-outline-secondary" [disabled]="!datetime?.day"
+                    type="button" (click)="toggleDateTimeState($event)">
+                Chọn
+            </button>
+        </div>
+        <div *ngIf="showTimePickerToggle">
+            <button class="btn btn-block btn-outline-secondary" [ngbPopover]="calendarContent" type="button"
+                    (click)="toggleDateTimeState($event)">
+                Chọn
+            </button>
+            <div class="mt-auto">
+                <ngb-timepicker #tp name="timepicker" [ngModel]="datetime" (ngModelChange)="onTimeChange($event)"
+                                [seconds]="seconds"
+                                [hourStep]="hourStep" [minuteStep]="minuteStep"
+                                [secondStep]="secondStep"></ngb-timepicker>
+            </div>
+        </div>
+    </div>
+</ng-template>

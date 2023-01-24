@@ -17,7 +17,7 @@ import {AdvancedTableModule} from "../../shared/advanced-table/advanced-table.mo
     declarations: [
         CompanyDetailComponent,
         CompanyListComponent,
-        CompanyCreateComponent
+        CompanyCreateComponent,
     ],
     imports: [
         CommonModule,

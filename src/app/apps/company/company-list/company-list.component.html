@@ -48,10 +48,12 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-1" style="cursor: pointer">
-                                    <button (click)="RedirectToDetail(i.id,$event)">
+                                    <button class="btn" (click)="RedirectToDetail(i.id,$event)">
                                         <i data-feather="edit" appFeatherIcon class="icon-dual"></i>
                                     </button>
-                                    <i data-feather="trash" appFeatherIcon class="icon-dual"></i>
+                                    <button class="btn">
+                                        <i data-feather="trash" appFeatherIcon class="icon-dual"></i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
