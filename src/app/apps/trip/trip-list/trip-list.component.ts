@@ -1,16 +1,13 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {BreadcrumbItem} from "../../../shared/page-title/page-title/page-title.model";
-import {CompanyModel} from "../../../core/models/company.model";
-import {Column} from "../../../core/models/common.models";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormSearchCompanyHelper} from "../../../core/helpers/formSearchCompany.helper";
 import {SyncQueryParam} from "../../../core/decorators/syncParams.decorator";
-import {FormGroup} from "@angular/forms";
-import {COLUMN_TRIP} from "../../../core/constants/common";
+import {FormControl, FormGroup} from "@angular/forms";
+import {COLUMN_TRIP, STATUS, STATUS_CONTENT, STATUS_VALUE} from "../../../core/constants/common";
 import {TripService} from "../../../core/service/trip.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormSearchTripHelper} from "../../../core/helpers/formSearchTrip.helper";
-import {Select2UpdateEvent} from "ng-select2-component";
+import {Select2Data, Select2UpdateEvent} from "ng-select2-component";
 
 @Component({
     selector: 'app-trip-list',
@@ -29,7 +26,9 @@ export class TripListComponent implements OnInit {
     columns: any[] = [];
     totalItems: any;
 
-    status: any
+    status: Select2Data = []
+    STATUS_VALUE: any = STATUS_VALUE;
+    STATUS_CONTENT: any = STATUS_CONTENT;
 
 
     constructor(
@@ -70,16 +69,24 @@ export class TripListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.status = [
-            {id: 1, label: 'Vilnius'},
-            {id: 2, label: 'Kaunas'},
-            {id: 4, label: 'Pabradė'},
-            {id: 5, label: 'Klaipėda'}
-        ];
         this.pageTitle = [{label: 'Danh sách lộ trình', path: '/', active: true}];
+        this.status = STATUS
     }
 
     changeSelectedStatus($event: Select2UpdateEvent) {
-        console.log('huihu', $event.options[0])
+        const valueSearch = $event.options[0].value
+
+
+        if (valueSearch !== '10') {
+            this.formSearchAndFilter.addControl('status', new FormControl())
+            this.formSearchAndFilter.patchValue({
+                status: valueSearch,
+            });
+        } else {
+            this.formSearchAndFilter.removeControl('status')
+        }
+
+
+        // console.log('huihu', $event.options[0])
     }
 }

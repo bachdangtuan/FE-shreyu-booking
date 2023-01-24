@@ -6,16 +6,17 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <div>
+                    <div class="col-2">
                         <h4 class="header-title">Danh sách lộ trình </h4>
                         <p class="text-muted font-14">
                             Danh sách các lộ trình
                         </p>
                     </div>
+                    <div class="col-1">
+                        <select2 placeholder="Lọc trạng thái" id="select2-2" (update)="changeSelectedStatus($event)"
+                                 [data]="status"></select2>
+                    </div>
                 </div>
-                <select2 (update)="changeSelectedStatus($event)" [data]="status">
-
-                </select2>
 
                 <!-- table start -->
                 <app-advanced-table
@@ -47,12 +48,18 @@
                             </td>
                             <td>{{i.startTime | date: 'HH:mm - dd/MM/yyyy'}}</td>
                             <td>{{(i.price).toLocaleString()}} ₫</td>
+                            <td>{{(i.user.length)}} người</td>
+                            <td>{{(i.price) * (i.user.length)}} ₫</td>
                             <td>
                                 <div [ngSwitch]="i?.status">
-                                    <p class="badge badge-soft-info py-1" *ngSwitchCase="1">Sẵn sàng</p>
-                                    <p class="badge badge-soft-danger py-1" *ngSwitchCase="2">Chưa sẵn sàng</p>
-                                    <p class="badge badge-soft-success py-1" *ngSwitchCase="3">Đã hoàn thành</p>
-                                    <p class="badge badge-soft-warning py-1" *ngSwitchDefault>Đang tiến hành</p>
+                                    <p class="badge badge-soft-info py-1"
+                                       *ngSwitchCase="STATUS_VALUE.SAN_SANG">{{STATUS_CONTENT.SAN_SANG}}</p>
+                                    <p class="badge badge-soft-danger py-1" *ngSwitchCase="STATUS_VALUE.CHUA_SAN_SANG">
+                                        {{STATUS_CONTENT.CHUA_SAN_SANG}}</p>
+                                    <p class="badge badge-soft-success py-1" *ngSwitchCase="STATUS_VALUE.DA_HOAN_THANH">
+                                        {{STATUS_CONTENT.DA_HOAN_THANH}}</p>
+                                    <p class="badge badge-soft-warning py-1"
+                                       *ngSwitchCase="STATUS_VALUE.DANG_TIEN_HANH">{{STATUS_CONTENT.DANG_TIEN_HANH}}</p>
                                 </div>
                                 <!--                                <span *ngIf="i?.status === 1; else active" class="badge badge-soft-danger py-1">Chưa hoạt động</span>-->
                                 <!--                                <ng-template #active>-->
