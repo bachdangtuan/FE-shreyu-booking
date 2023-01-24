@@ -1,9 +1,9 @@
 <div class="card">
     <div class="card-body">
         <div class="text-center mt-2">
-            <img [src]="company.image" alt="" class="w-100"/>
-            <h3 class="mt-4 mb-3">{{company.name | uppercase }}</h3>
-            <p *ngIf="company.status === false ; else Active" class="badge-soft-danger fs-18 badge">
+            <img [src]="company?.image" alt="" class="w-100"/>
+            <h3 class="mt-4 mb-3">{{company?.name | uppercase }}</h3>
+            <p *ngIf="company?.status === false ; else Active" class="badge-soft-danger fs-18 badge">
                 {{'Không hoạt động'}}
             </p>
             <ng-template #Active>
@@ -25,7 +25,7 @@
         <div class="mt-2 pt-2 border-top">
             <h4 class="mb-3 fs-15">Lời giới thiệu</h4>
             <p class="text-muted mb-3">
-                {{company.description}}
+                {{company?.description}}
             </p>
         </div>
         <div class="mt-3 pt-2 border-top">
@@ -35,15 +35,15 @@
                     <tbody>
                     <tr>
                         <th scope="row">Email</th>
-                        <td>{{company.email}}</td>
+                        <td>{{company?.email}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Phone</th>
-                        <td>{{company.phone}}</td>
+                        <td>{{company?.phone}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Địa chỉ</th>
-                        <td>{{company.address}}</td>
+                        <td>{{company?.address}}</td>
                     </tr>
                     </tbody>
                 </table>
