@@ -22,7 +22,7 @@ export class FormSearchTripHelper {
             // search: new FormControl(data?.search || ""),
             page: new FormControl(data?.page || 1),
             limit: new FormControl(data?.limit || 10),
-            // status: new FormControl(data?.status || [""]),
+            status: new FormControl(data?.status),
             // type: new FormControl(data?.type || [""]),
         });
     }

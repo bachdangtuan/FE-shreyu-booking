@@ -30,7 +30,7 @@ import {Select2Module} from "ng-select2-component";
         UiModule,
         Select2Module,
         NgbDatepickerModule,
-        NgbPopoverModule
+        NgbPopoverModule,
     ]
 })
 export class TripModule {

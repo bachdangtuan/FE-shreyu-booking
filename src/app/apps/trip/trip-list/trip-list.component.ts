@@ -9,6 +9,8 @@ import {FormGroup} from "@angular/forms";
 import {COLUMN_TRIP} from "../../../core/constants/common";
 import {TripService} from "../../../core/service/trip.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {FormSearchTripHelper} from "../../../core/helpers/formSearchTrip.helper";
+import {Select2UpdateEvent} from "ng-select2-component";
 
 @Component({
     selector: 'app-trip-list',
@@ -27,15 +29,17 @@ export class TripListComponent implements OnInit {
     columns: any[] = [];
     totalItems: any;
 
+    status: any
+
+
     constructor(
         public injector: Injector,
         private route: ActivatedRoute,
-        private formService: FormSearchCompanyHelper,
+        private formService: FormSearchTripHelper,
         private TripService: TripService,
         public router: Router,
         private _NgbModal: NgbModal
     ) {
-
         this.formSearchAndFilter = formService.form;
         this.initTableCofig()
         this.getCompanyList()
@@ -66,7 +70,16 @@ export class TripListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.status = [
+            {id: 1, label: 'Vilnius'},
+            {id: 2, label: 'Kaunas'},
+            {id: 4, label: 'Pabradė'},
+            {id: 5, label: 'Klaipėda'}
+        ];
         this.pageTitle = [{label: 'Danh sách lộ trình', path: '/', active: true}];
     }
 
+    changeSelectedStatus($event: Select2UpdateEvent) {
+        console.log('huihu', $event.options[0])
+    }
 }

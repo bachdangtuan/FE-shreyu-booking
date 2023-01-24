@@ -12,10 +12,10 @@
                             Danh sách các lộ trình
                         </p>
                     </div>
-
-
                 </div>
+                <select2 (update)="changeSelectedStatus($event)" [data]="status">
 
+                </select2>
 
                 <!-- table start -->
                 <app-advanced-table
