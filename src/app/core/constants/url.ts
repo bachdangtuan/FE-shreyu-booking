@@ -22,6 +22,7 @@ export const API_URL = {
     // TRIP
     CREATE_TRIP: "http://localhost:5000/api/v1/trips/create-trip",
     LIST_TRIP: "http://localhost:5000/api/v1/trips/list-trips",
+    IMPORT_TRIP: "http://localhost:5000/api/v1/trips/import-trip",
 }
 
 

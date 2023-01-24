@@ -15,4 +15,9 @@ export class TripService {
             params: param
         }) as Observable<any>;
     }
+
+
+    public importTrip(file: any): Observable<any> {
+        return this.http.post(API_URL.IMPORT_TRIP, file) as Observable<any>;
+    }
 }

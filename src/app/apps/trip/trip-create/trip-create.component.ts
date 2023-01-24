@@ -5,6 +5,7 @@ import {noop, throwError} from "rxjs";
 import {NgbDatepicker, NgbDateStruct, NgbPopover, NgbPopoverConfig, NgbTimeStruct} from "@ng-bootstrap/ng-bootstrap";
 import {DateTimeModel} from "../../../core/models/date-time.model";
 import {FormBuilder, FormGroup, NgControl, Validators} from "@angular/forms";
+import {TripService} from "../../../core/service/trip.service";
 
 
 @Component({
@@ -28,6 +29,8 @@ export class TripCreateComponent implements OnInit {
     @Input() seconds = true;
     @Input() disabled = false;
 
+
+    isActive: boolean = true;
     showTimePickerToggle = false;
 
     public datetime: DateTimeModel = new DateTimeModel();
@@ -40,12 +43,14 @@ export class TripCreateComponent implements OnInit {
     public stations: any;
 
     validCreateTrip!: FormGroup;
+    private fileUpload!: File;
 
     constructor(
         private config: NgbPopoverConfig,
         private fb: FormBuilder,
         private inj: Injector,
-        private StationService: StationService
+        private StationService: StationService,
+        public TripService: TripService
     ) {
         config.autoClose = 'outside';
         config.placement = 'auto';
@@ -193,5 +198,22 @@ export class TripCreateComponent implements OnInit {
                 }
             )
         }
+    }
+
+
+    readFile($event: any) {
+        if ($event.target.files) {
+            this.isActive = false
+            this.fileUpload = $event.target.files
+            console.log('$event', $event.target.files)
+        }
+    }
+
+    uploadFile() {
+        this.TripService.importTrip(this.fileUpload).subscribe(
+            data => {
+                console.log(data)
+            }
+        )
     }
 }
