@@ -1,7 +1,7 @@
 FROM node:14.17-alpine as build
 WORKDIR /app
 
-RUN npm install -g @angular/cli@13.1.4
+RUN npm install -g @angular/cli@12.1.4
 
 COPY ./package.json .
 RUN yarn install
