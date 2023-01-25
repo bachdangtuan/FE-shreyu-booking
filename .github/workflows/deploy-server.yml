@@ -14,6 +14,8 @@ jobs:
 
         # Build và đẩy lên dockerhub
       - name: Build and push Docker image
+      - uses: actions/checkout@v3
+
         run: |
           docker build -t sheryu-frontend-app .
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
