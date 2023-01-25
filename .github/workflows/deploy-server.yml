@@ -3,14 +3,24 @@ name: Docker Image CI
 on:
   push:
     branches: [ "master" ]
-    
+
 jobs:
-
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+        # Build và đẩy lên dockerhub
+      - name: Build and push Docker image
+        run: |
+          docker build -t sheryu-frontend-app .
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push sheryu-frontend-app
+
+      - name: Deploy to server
+        run: |
+          ssh -i PATH_TO_PRIVATE_KEY root@SERVER_IP "docker pull my-angular-app:latest"
+          ssh -i PATH_TO_PRIVATE_KEY root@SERVER_IP "docker stop my-angular-app"
+          ssh -i PATH_TO_PRIVATE_KEY root@SERVER_IP "docker run -d -p 80:80 --name my-angular-app my-angular-app:latest"
