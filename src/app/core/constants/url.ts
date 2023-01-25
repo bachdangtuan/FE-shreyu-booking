@@ -2,7 +2,7 @@ export const API_URL = {
     //AUTHEN
     CREATE: "http://localhost:5000/api/v1/users/register",
     LOGIN: "http://localhost:5000/api/v1/users/login",
-
+    RESET_PASSWORD: 'http://localhost:5000/api/v1/users/reset-password',
 
     // COMPANY
     CREATE_COMPANY: "http://localhost:5000/api/v1/companies/create-company",

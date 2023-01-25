@@ -45,17 +45,17 @@ export class LockScreenComponent implements OnInit {
    */
   onSubmit(): void {
     this.formSubmitted = true;
-    if (this.lockScreenForm.valid) {
-      this.authenticationService.login(this.authenticationService.currentUser()?.email!, this.formValues.password?.value)
-        .pipe(first())
-        .subscribe(
-          (data: any) => {
-            this.router.navigate(['/dashboard/ecommerce']);
-          },
-          (error: any) => {
-            this.error = error;
-          });
-    }
+    // if (this.lockScreenForm.valid) {
+    //   this.authenticationService.login(this.authenticationService.currentUser()?.email!, this.formValues.password?.value)
+    //     .pipe(first())
+    //     .subscribe(
+    //       (data: any) => {
+    //         this.router.navigate(['/dashboard/ecommerce']);
+    //       },
+    //       (error: any) => {
+    //         this.error = error;
+    //       });
+    // }
   }
 
 }
