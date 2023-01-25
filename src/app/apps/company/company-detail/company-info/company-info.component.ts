@@ -8,7 +8,7 @@ import {UserInfo} from '../company-detail.model';
 })
 export class CompanyInfoComponent implements OnInit {
 
-    @Input() company?: any = {};
+    @Input() company$: any = {};
 
     constructor() {
     }

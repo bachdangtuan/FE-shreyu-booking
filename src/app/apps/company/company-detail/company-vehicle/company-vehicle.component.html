@@ -1,4 +1,8 @@
-<h4 class="mt-1 fs-15 fw-bold text-uppercase">Danh sách các dòng xe</h4>
+<div class="d-flex justify-content-between">
+    <h4 class="mt-1 fs-15 fw-bold text-uppercase">Danh sách các dòng xe</h4>
+
+    <h4 class="mt-1 fs-15 fw-bold text-uppercase"> Đang sở hữu {{vehicle.length}} xe</h4>
+</div>
 
 <div class="row mt-3">
     <div class="col-xxl-4 col-md-6" *ngFor="let car of paginateData;let i = index">
@@ -10,15 +14,17 @@
                     {{'Dừng hoạt động'}}</div>
                 <p class="text-success text-uppercase fs-14 mb-2">{{car.type}}</p>
                 <h5 class="text-dark">{{car.name}}</h5>
-                <p class="text-muted mb-4">{{car.description.slice(0, 25) + '...'}}</p>
+                <p class="text-muted mb-4">{{car.description.slice(0, 40) + '...'}}</p>
                 <div>
                     <img class="w-100" [src]="car.images" alt="hinhAnhXe">
                 </div>
             </div>
             <div class="card-body border-top">
-                <div class="d-flex justify-content-between">
-                    <p>{{car.numberRegister}}</p>
-                    <p>{{car.driver}}</p>
+                <div>
+                    <h4 class="mt-1 fs-15 fw-bold text-uppercases">Biển kiểm soát:
+                        <span class="bg-dark text-white p-1 border-radius">{{car.numberRegister}}</span>
+                    </h4>
+                    <h4 class="mt-1 fs-15 fw-bold text-uppercases">Số lượng tài xế: {{car.driver}}</h4>
                 </div>
             </div>
         </div>

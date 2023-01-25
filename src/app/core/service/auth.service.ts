@@ -26,11 +26,15 @@ export class AuthenticationService {
 
     // đăng ký
     public createUser(user: any): Observable<any> {
-        console.log('user',user)
+        // console.log('user', user)
         return this.http.post(API_URL.CREATE, user) as Observable<any>;
     }
 
-
+    // lấy lại mật khẩu
+    public resetPassword(email: any): Observable<any> {
+        // console.log('user', email)
+        return this.http.post(API_URL.RESET_PASSWORD, email) as Observable<any>;
+    }
 
 
     /**********************************************************
@@ -47,23 +51,23 @@ export class AuthenticationService {
         return this.user;
     }
 
-    /**
-     * Performs the login auth
-     * @param email
-     * @param password
-     */
-    login(email: string, password: string): any {
-        return this.http.post<any>(`/api/login`, {email, password})
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    this.user = user;
-                    // store user details and jwt in session
-                    sessionStorage.setItem('currentUser', JSON.stringify(user));
-                }
-                return user;
-            }));
-    }
+    // /**
+    //  * Performs the login auth
+    //  * @param email
+    //  * @param password
+    //  */
+    // login(email: string, password: string): any {
+    //     return this.http.post<any>(`/api/login`, {email, password})
+    //         .pipe(map(user => {
+    //             // login successful if there's a jwt token in the response
+    //             if (user && user.token) {
+    //                 this.user = user;
+    //                 // store user details and jwt in session
+    //                 sessionStorage.setItem('currentUser', JSON.stringify(user));
+    //             }
+    //             return user;
+    //         }));
+    // }
 
     /**
      * Performs the signup auth
