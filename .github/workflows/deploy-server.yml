@@ -74,6 +74,6 @@ jobs:
 #        run: |
 #          docker stop ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
 
-      - name: Run container from image
-        run: |
-          docker run -d -p 80:80 --name ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+#      - name: Run container from image
+#        run: |
+#          docker run -d -p 80:80 --name ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
