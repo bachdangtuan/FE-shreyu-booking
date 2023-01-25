@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SimplebarAngularModule } from 'simplebar-angular';
+// import { SimplebarAngularModule } from 'simplebar-angular';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgbDatepickerModule, NgbDropdownModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { UiModule } from 'src/app/shared/ui/ui.module';
@@ -41,7 +41,7 @@ import { ActivityComponent } from './activity/activity.component';
     UiModule,
     NgbDropdownModule,
     NgApexchartsModule,
-    SimplebarAngularModule,
+    // SimplebarAngularModule,
     NgbDatepickerModule,
     NgbProgressbarModule,
     WidgetModule,

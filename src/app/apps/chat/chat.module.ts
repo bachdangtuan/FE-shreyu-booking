@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SimplebarAngularModule } from 'simplebar-angular';
+// import { SimplebarAngularModule } from 'simplebar-angular';
 import { NgbAccordionModule, NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageTitleModule } from 'src/app/shared/page-title/page-title.module';
 import { UiModule } from 'src/app/shared/ui/ui.module';
@@ -21,7 +21,7 @@ import { ChatAreaComponent } from './chat-area/chat-area.component';
     CommonModule,
     FormsModule,
     UiModule,
-    SimplebarAngularModule,
+    // SimplebarAngularModule,
     NgbAccordionModule,
     NgbDropdownModule,
     NgbModalModule,

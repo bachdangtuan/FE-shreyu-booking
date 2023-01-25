@@ -25,7 +25,7 @@
         <h4 class="header-title mb-4">{{cardTitle}}</h4>
 
         <div class="chat-conversation">
-            <ngx-simplebar style="max-height: 314px;">
+<!--            <ngx-simplebar style="max-height: 314px;">-->
                 <ul class="conversation-list">
                     <li class="clearfix" *ngFor="let message of chatMessages;"
                         [ngClass]="{'odd': message.sender.name==='Dominic'}">
@@ -43,7 +43,7 @@
                         </div>
                     </li>
                 </ul>
-            </ngx-simplebar>
+<!--            </ngx-simplebar>-->
 
             <form class="needs-validation" name="chat-form" #chatForm="ngForm" (ngSubmit)="sendMessage()">
                 <div class="row">

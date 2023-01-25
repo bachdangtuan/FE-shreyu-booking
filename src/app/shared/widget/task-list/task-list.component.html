@@ -4,7 +4,7 @@
             View All
         </a>
         <h5 class="mb-4 header-title">{{cardTitle}}</h5>
-        <ngx-simplebar class="px-1" style="max-height: 352px;">
+<!--        <ngx-simplebar class="px-1" style="max-height: 352px;">-->
             <div *ngFor="let task of taskList;let i=index" [class.mt-2]="i!==0">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="task{{task.id}}">
@@ -14,7 +14,7 @@
                     <p class="fs-13 text-muted">Due on {{task.dueDate}}</p>
                 </div> <!-- end checkbox -->
             </div>
-        </ngx-simplebar>
+<!--        </ngx-simplebar>-->
 
     </div>
 </div>

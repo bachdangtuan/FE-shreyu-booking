@@ -49,7 +49,7 @@
         <!-- End searchbar -->
 
         <!-- start contact list -->
-        <ngx-simplebar class="pe-2" style="max-height: 545px">
+<!--        <ngx-simplebar class="pe-2" style="max-height: 545px">-->
             <a href="javascript:void(0);" class="text-body" *ngFor="let user of userList" (click)="activateUser(user)">
                 <div class="d-flex align-items-start p-2" [ngClass]="{'bg-light': user.id === selectedUser.id}">
                     <div class="position-relative">
@@ -71,7 +71,7 @@
                 </div>
             </a>
 
-        </ngx-simplebar>
+<!--        </ngx-simplebar>-->
 
 
     </div> <!-- End card-body -->

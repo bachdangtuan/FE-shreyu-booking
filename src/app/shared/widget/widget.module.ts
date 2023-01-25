@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { SimplebarAngularModule } from 'simplebar-angular';
+// import { SimplebarAngularModule } from 'simplebar-angular';
 import { ChartStatisticsWidgetComponent } from './chart-statistics-widget/chart-statistics-widget.component';
 import { MembersComponent } from './members/members.component';
 import { ChatComponent } from './chat/chat.component';
@@ -47,7 +47,7 @@ import { CanadaMapComponent } from './vectormap/canada-map/canada-map.component'
     FormsModule,
     RouterModule,
     NgApexchartsModule,
-    SimplebarAngularModule,
+    // SimplebarAngularModule,
     NgbDropdownModule,
     UiModule
   ],

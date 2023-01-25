@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { SimplebarAngularModule } from 'simplebar-angular';
+// import { SimplebarAngularModule } from 'simplebar-angular';
 import { LeftPanelComponent } from './left-panel/left-panel.component';
 import { ChatBoxComponent } from './chat-box/chat-box.component';
 
@@ -14,7 +14,7 @@ import { ChatBoxComponent } from './chat-box/chat-box.component';
   ],
   imports: [
     CommonModule,
-    SimplebarAngularModule,
+    // SimplebarAngularModule,
     NgbDropdownModule
   ],
   exports: [
