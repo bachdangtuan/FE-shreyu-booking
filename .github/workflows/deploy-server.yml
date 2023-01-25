@@ -17,7 +17,9 @@ jobs:
         run: |
           docker build -t sheryu-frontend-app .
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push bachdangtuan/sheryu-frontend-app:$IMAGE_TAG
+          
+          echo "Thế này login đúng chưa."
+          docker push bachdangtuan/sheryu-frontend-app
 
 
 
