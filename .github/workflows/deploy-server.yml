@@ -22,7 +22,7 @@ jobs:
 
       - name: Download image from Docker Hub
         run: |
-          docker pull sheryu-frontend-app:latest
+          docker pull sheryu-frontend-app
 
       - name: Stop running container
         run: |
