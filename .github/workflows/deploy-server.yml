@@ -68,7 +68,7 @@ jobs:
 
       - name: Download image from Docker Hub
         run: |
-          docker pull sheryu-frontend-app
+          docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
 
 #      - name: Stop running container
 #        run: |
