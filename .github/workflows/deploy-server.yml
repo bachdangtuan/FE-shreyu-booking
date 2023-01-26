@@ -70,6 +70,8 @@ jobs:
         run: |
           docker pull bachdangtuan/sheryu-frontend-app
 #
+          docker images
+
 #      - name: Stop running container
 #        run: |
 #          docker stop ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
@@ -77,3 +79,4 @@ jobs:
       - name: Run container from image
         run: |
           docker run -d -p 4200:80 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+          docker ps -a
