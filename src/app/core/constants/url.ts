@@ -25,7 +25,7 @@
 //     IMPORT_TRIP: "http://localhost:5000/api/v1/trips/import-trip",
 // }
 
-export const LINK = 'https://api-dev.bachdangtuan.click/'
+export const LINK = 'https://api-dev.bachdangtuan.click'
 
 export const API_URL = {
     // AUTH
