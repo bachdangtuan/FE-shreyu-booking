@@ -74,11 +74,11 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             echo "Tắt và xóa toàn bộ container đang chạy"
-            docker stop $(docker ps -q)
-            docker rm $(docker ps -a -q)
+            sudo docker stop $(docker ps -q)
+            sudo docker rm $(docker ps -a -q)
             echo "Pull images mới"
-            docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
-            docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
+            sudo docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
             
             
             
