@@ -64,7 +64,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
+          password: ${{ secrets.PRIVATE_KEY }}
           script: |
             echo "Hello, world 12!"
 
