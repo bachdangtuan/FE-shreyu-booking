@@ -78,7 +78,7 @@ jobs:
             sudo docker rm $(docker ps -a -q)
             echo "Pull images mới"
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
-            sudo docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4200:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
             
             
             
