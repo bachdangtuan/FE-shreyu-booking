@@ -13,4 +13,4 @@ FROM nginx
 COPY ./etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/shreyu-angular /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 4200
