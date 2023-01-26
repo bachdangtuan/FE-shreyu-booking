@@ -74,13 +74,18 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             echo "Tắt và xóa toàn bộ container đang chạy"
-            sudo docker stop $(docker ps -q)
+            sudo docker kill $(docker ps -q)
             sudo docker rm $(docker ps -a -q)
+            
+             echo "Xóa toàn bộ images"
+            docker rmi $(docker images -a -q)
+            
+            
             echo "Pull images mới"
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
             sudo docker run -d -p 4200:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
             
-            
+            echo "Hoàn thành chế độ"
             
             
 
