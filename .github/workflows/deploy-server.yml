@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           private_key: ${{ secrets.PRIVATE_KEY }}
           script: |
-            echo "Hello, world 1!"
+            echo "Hello, world 12!"
 
 #      - name: Build the Docker image
 #        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
