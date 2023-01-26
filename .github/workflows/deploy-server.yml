@@ -59,6 +59,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
+
+      - name: Docker Push
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
+
       - name: SSH into server
         uses: appleboy/ssh-action@master
         with:
@@ -66,16 +73,17 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            echo "Hello, world 123!"
-
-#      - name: Build the Docker image
-#        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
-#
-#      - name: Docker Push
-#        run: docker push ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
-
-
-
+            echo "Tắt và xóa toàn bộ container đang chạy"
+            docker stop $(docker ps -q)
+            docker rm $(docker ps -a -q)
+            echo "Pull images mới"
+            docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
+            docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            
+            
+            
+            
+            
 #      - name: Download image from Docker Hub
 #        run: |
 #          docker pull bachdangtuan/sheryu-frontend-app
