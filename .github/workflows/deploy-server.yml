@@ -44,7 +44,7 @@ name: Publish Docker Image to Docker Hub
 
 on:
   push:
-    branches: ['master']
+    branches: [ 'master' ]
 
 jobs:
   build:
@@ -65,14 +65,22 @@ jobs:
       - name: Docker Push
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
 
+      - name: SSH into server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          script: |
+            echo "Hello, world!"
 
       - name: Download image from Docker Hub
         run: |
           docker pull bachdangtuan/sheryu-frontend-app
-#
-#      - name: Stop running container
-#        run: |
-#          docker stop ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
+      #
+      #      - name: Stop running container
+      #        run: |
+      #          docker stop ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
 
       - name: Run container from image
         run: |
