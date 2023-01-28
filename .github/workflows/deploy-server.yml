@@ -77,7 +77,7 @@ jobs:
             sudo docker kill $(docker ps -q)
             sudo docker rm $(docker ps -a -q)
             
-             echo "Xóa toàn bộ images"
+            echo "Xóa toàn bộ images"
             docker rmi $(docker images -a -q)
             
             
@@ -86,8 +86,8 @@ jobs:
             sudo docker run -d -p 4200:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
             
             echo "Hoàn thành chế độ"
-            
-            
+
+
 
 #      - name: Download image from Docker Hub
 #        run: |
