@@ -104,18 +104,18 @@ const MENU_ITEMS: MenuItem[] = [
         icon: 'users',
         collapsed: true,
         children: [
-            {
-                key: 'customer-list',
-                label: 'Danh sách',
-                // link: '/apps/trip/list',
-                parentKey: 'apps-member',
-            },
-            {
-                key: 'customer-list',
-                label: 'Lịch sử tích điểm',
-                // link: '/apps/trip/list',
-                parentKey: 'apps-member',
-            },
+            // {
+            //     key: 'customer-list',
+            //     label: 'Danh sách',
+            //     // link: '/apps/trip/create',
+            //     parentKey: 'apps-member',
+            // },
+            // {
+            //     key: 'customer-list',
+            //     label: 'Lịch sử tích điểm',
+            //     // link: '/apps/trip/list',
+            //     parentKey: 'apps-member',
+            // },
         ],
     },
     {
@@ -125,12 +125,12 @@ const MENU_ITEMS: MenuItem[] = [
         icon: 'user',
         collapsed: true,
         children: [
-            {
-                key: 'member-list',
-                label: 'Danh sách',
-                // link: '/apps/trip/list',
-                parentKey: 'apps-member',
-            },
+            // {
+            //     key: 'member-list',
+            //     label: 'Danh sách',
+            //     // link: '/apps/trip/list',
+            //     parentKey: 'apps-member',
+            // },
         ],
     },
 
@@ -143,24 +143,24 @@ const MENU_ITEMS: MenuItem[] = [
         icon: 'clipboard',
         collapsed: true,
         children: [
-            {
-                key: 'utilities',
-                label: 'Danh sách voucher',
-                // link: '/apps/trip/list',
-                parentKey: 'apps-utilities',
-            },
-            {
-                key: 'utilities',
-                label: 'Gửi voucher',
-                // link: '/apps/trip/list',
-                parentKey: 'apps-utilities',
-            },
-            {
-                key: 'utilities',
-                label: 'Tạo QR Code',
-                // link: '/apps/trip/list',
-                parentKey: 'apps-utilities',
-            },
+            // {
+            //     key: 'utilities',
+            //     label: 'Danh sách voucher',
+            //     // link: '/apps/trip/list',
+            //     parentKey: 'apps-utilities',
+            // },
+            // {
+            //     key: 'utilities',
+            //     label: 'Gửi voucher',
+            //     // link: '/apps/trip/list',
+            //     parentKey: 'apps-utilities',
+            // },
+            // {
+            //     key: 'utilities',
+            //     label: 'Tạo QR Code',
+            //     // link: '/apps/trip/list',
+            //     parentKey: 'apps-utilities',
+            // },
         ],
     },
 
@@ -176,8 +176,8 @@ const MENU_ITEMS: MenuItem[] = [
         children: [
             {
                 key: 'logsys',
-                label: 'Danh sách nhật ký hệ thống',
-                // link: '/apps/trip/list',
+                label: 'Log systems',
+                link: '/apps/log/list',
                 parentKey: 'apps-logsys',
             },
         ],

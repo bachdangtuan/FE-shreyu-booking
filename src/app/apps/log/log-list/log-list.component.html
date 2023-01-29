@@ -1,0 +1,80 @@
+<!-- page title -->
+<app-page-title [breadcrumbItems]="pageTitle" title="Nhật ký hệ thống"></app-page-title>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="col-2">
+                        <h4 class="header-title">Hệ thống quản lý log</h4>
+                        <h5 class="text-dark font-14">
+                            Tổng số <span class="">{{totalItems}}</span> request
+                        </h5>
+                    </div>
+                    <div class="col-1">
+                        <!--                        <select2 placeholder="Lọc trạng thái" id="select2-2" (update)="changeSelectedStatus($event)"-->
+                        <!--                                 [data]="status"></select2>-->
+                    </div>
+                </div>
+
+                <!-- table start -->
+                <app-advanced-table
+                        [totalItems]="totalItems"
+                        [page]="pageCurrent"
+                        [limit]="limit"
+                        [pagination]="true"
+                        [hasRowSelection]="true"
+                        (pageChange)="updatePage($event)"
+                >
+                    <ng-template #theHeaders>
+                        <tr>
+                            <th *ngFor="let column of columns" [style.width.px]="column.width" class="text-capitalize">
+                                {{column.label}}</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template #theContent>
+                        <tr *ngFor="let i of records">
+                            <td>{{i.method}}</td>
+                            <td>
+                                <p class="m-0">{{i.ip}}</p>
+                            </td>
+                            <td>
+                                <p class="m-0">{{i.url}}</p>
+                            </td>
+                            <td class="text-center">
+                                <p class="badge" [ngClass]="{
+                                'badge-soft-success': 100< i?.status && i?.status <= 200,
+                                'badge-soft-warning': 200< i?.status && i?.status <= 399,
+                                'badge-soft-danger': 600 > i?.status && i?.status > 400}">
+                                    {{i?.status}}
+                                </p>
+                            </td>
+                            <td>{{i?.responseTime}}</td>
+                            <td>{{i.timestamp | date: 'HH:mm - dd/MM/yyyy'}}</td>
+                            <td>
+                                <p class="badge badge-soft-info py-1">
+                                    Info
+                                </p>
+
+                            </td>
+                            <td>
+                                <div class="d-flex gap-1" style="cursor: pointer">
+                                    <button class="btn">
+                                        <i data-feather="trash" appFeatherIcon class="icon-dual"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+
+                </app-advanced-table>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+<!-- end row-->
+
+

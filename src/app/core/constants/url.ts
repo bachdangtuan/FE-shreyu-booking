@@ -26,6 +26,8 @@
 // }
 
 export const LINK = 'https://api-dev.bachdangtuan.click'
+export const LINK2 = "https://logger.bachdangtuan.click"
+
 
 export const API_URL = {
     // AUTH
@@ -45,6 +47,10 @@ export const API_URL = {
     CREATE_TRIP: `${LINK}/api/v1/trips/create-trip`,
     LIST_TRIP: `${LINK}/api/v1/trips/list-trips`,
     IMPORT_TRIP: `${LINK}/api/v1/trips/import-trip`,
+
+    // LOG
+    // LIST_LOG: `${LINK2}/api/v1/logging`,
+    LIST_LOG: `http://localhost:5001/api/v1/logging`,
 }
 
 export const PARAM_URL = {

@@ -10,7 +10,6 @@ export const TITLE = {
 }
 
 // column table vehicle
-
 export const COLUMN_VEHICLE = [
     {
         name: 'id',
@@ -53,7 +52,6 @@ export const COLUMN_VEHICLE = [
 
 
 // column table trip
-
 export const COLUMN_TRIP = [
     {
         name: 'id',
@@ -146,6 +144,47 @@ export const COLUMN_COMPANY = [
     },
 ];
 
+
+// column table Log
+export const COLUMN_LOG = [
+    {
+        name: 'method',
+        label: 'Method',
+        width: 100,
+    },
+    {
+        name: 'ip',
+        label: 'Địa chỉ IP',
+        width: 100,
+    },
+    {
+        name: 'url',
+        label: 'Đường dẫn (URL)',
+        width: 500,
+    },
+    {
+        name: 'status',
+        label: 'Status Code',
+        width: 150,
+    },
+    {
+        name: 'responseTime',
+        label: 'Response Time',
+        width: 100,
+    },
+    {
+        name: 'timestamp',
+        label: 'Time Request',
+        width: 100,
+    },
+    {
+        name: 'logtype',
+        label: 'Loại Log',
+        width: 150,
+    },
+];
+
+
 // status
 export const STATUS_CONTENT = {
     DANG_TIEN_HANH: 'Đang tiến hành',
@@ -162,6 +201,17 @@ export const STATUS_VALUE = {
     DA_HOAN_THANH: '3',
     TAT_CA: '10',
 }
+
+// STATUS CODE
+export const STATUS_CODE = {
+    DANG_TIEN_HANH: '4',
+    CHUA_SAN_SANG: '2',
+    SAN_SANG: '1',
+    DA_HOAN_THANH: '3',
+    TAT_CA: '10',
+}
+
+
 export const STATUS: Select2Data = [
     {
         label: '',
