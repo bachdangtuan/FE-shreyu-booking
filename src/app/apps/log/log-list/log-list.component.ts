@@ -16,6 +16,7 @@ import {TripService} from "../../../core/service/trip.service";
 import {SyncQueryParam} from "../../../core/decorators/syncParams.decorator";
 import {FormControl, FormGroup} from "@angular/forms";
 import {LogService} from "../../../core/service/log.service";
+import {FormSearchLogHelper} from "../../../core/helpers/formSearchLog.helper";
 
 @Component({
     selector: 'app-log-list',
@@ -41,19 +42,20 @@ export class LogListComponent implements OnInit {
     constructor(
         public injector: Injector,
         private route: ActivatedRoute,
-        private formService: FormSearchTripHelper,
+        private formService: FormSearchLogHelper,
         private LogService: LogService,
         public router: Router,
         private _NgbModal: NgbModal
     ) {
         this.formSearchAndFilter = formService.form;
-        this.initTableCofig()
         this.getLogList()
+        this.initTableCofig()
     }
 
     ngOnInit(): void {
         this.pageTitle = [{label: 'Hệ thống Log Server', path: '/', active: true}];
-        this.status = STATUS
+        this.status = STATUS;
+
     }
 
     getLogList() {
