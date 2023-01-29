@@ -49,8 +49,8 @@ export const API_URL = {
     IMPORT_TRIP: `${LINK}/api/v1/trips/import-trip`,
 
     // LOG
-    // LIST_LOG: `${LINK2}/api/v1/logging`,
-    LIST_LOG: `http://localhost:5001/api/v1/logging`,
+    LIST_LOG: `${LINK2}/api/v1/logging`,
+    // LIST_LOG: `http://localhost:5001/api/v1/logging`,
 }
 
 export const PARAM_URL = {
