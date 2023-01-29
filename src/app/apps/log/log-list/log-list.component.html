@@ -39,16 +39,17 @@
                         <tr *ngFor="let i of records">
                             <td>{{i.method}}</td>
                             <td>
-                                <p class="m-0">{{i.ip}}</p>
+                                <p class="m-0"> {{i.ip}}</p>
+                                <small>Vị trí: {{ i.geoIP?.region + '-' + i.geoIP?.country}}</small>
                             </td>
                             <td>
-                                <p class="m-0">{{i.url}}</p>
+                                <p class="m-0">{{'https://logger.bachdangtuan.click/api/v1/' + i.url}}</p>
                             </td>
                             <td class="text-center">
                                 <p class="badge" [ngClass]="{
                                 'badge-soft-success': 100< i?.status && i?.status <= 200,
                                 'badge-soft-warning': 200< i?.status && i?.status <= 399,
-                                'badge-soft-danger': 600 > i?.status && i?.status > 400}">
+                                'badge-soft-danger': 600 > i?.status && i?.status > 399}">
                                     {{i?.status}}
                                 </p>
                             </td>

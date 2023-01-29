@@ -10,7 +10,6 @@ export class LogService {
     }
 
     public getListLogging(param: any): Observable<any> {
-        console.log('param', param)
         return this.http.get(API_URL.LIST_LOG, {
             params: param
         }) as Observable<any>;
