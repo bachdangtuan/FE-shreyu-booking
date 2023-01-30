@@ -37,7 +37,22 @@
 
                     <ng-template #theContent>
                         <tr *ngFor="let i of records">
-                            <td>{{i.method}}</td>
+                            <td>
+                                <div [ngSwitch]="i.method">
+                                    <p class="text-success py-1"
+                                       *ngSwitchCase="'GET'">{{i?.method}}</p>
+                                    <p class="text-error py-1" *ngSwitchCase="'DELETE'">
+                                        {{i?.method}}
+                                    </p>
+                                    <p class="text-warning py-1"
+                                       *ngSwitchCase="'POST'">{{i?.method}}</p>
+                                    <p class="text-primary py-1"
+                                       *ngSwitchCase="'PUT'">{{i?.method}}</p>
+
+                                    <p class="text-success py-1"
+                                       *ngSwitchDefault>{{'OPTION'}}</p>
+                                </div>
+                            </td>
                             <td>
                                 <p class="m-0"> {{i.ip}}</p>
                                 <small>Vị trí: {{ i.geoIP?.region + '-' + i.geoIP?.country}}</small>
@@ -46,7 +61,7 @@
                                 <p class="m-0">{{'https://crm.bachdangtuan.click/api/v1/' + i.url}}</p>
                             </td>
                             <td class="text-center">
-                                <p class="badge" [ngClass]="{
+                                <p class="badge fs-18" [ngClass]="{
                                 'badge-soft-success': 100< i?.status && i?.status <= 200,
                                 'badge-soft-warning': 200< i?.status && i?.status <= 399,
                                 'badge-soft-danger': 600 > i?.status && i?.status > 399}">
@@ -56,10 +71,17 @@
                             <td>{{i?.responseTime}}</td>
                             <td>{{i.timestamp | date: 'HH:mm - dd/MM/yyyy'}}</td>
                             <td>
-                                <p class="badge badge-soft-info py-1">
-                                    Info
-                                </p>
-
+                                <div [ngSwitch]="i?.logtype">
+                                    <p class="badge badge-soft-info py-1"
+                                       *ngSwitchCase="'INFO'">{{i?.logtype}}</p>
+                                    <p class="badge badge-soft-danger py-1" *ngSwitchCase="'ERROR'">
+                                        {{i?.logtype}}
+                                    </p>
+                                    <p class="badge badge-soft-warning py-1"
+                                       *ngSwitchCase="'WARNING'">{{i?.logtype}}</p>
+                                    <p class="badge badge-soft-info py-1"
+                                       *ngSwitchDefault>{{'INFO'}}</p>
+                                </div>
                             </td>
                             <td>
                                 <div class="d-flex gap-1" style="cursor: pointer">
