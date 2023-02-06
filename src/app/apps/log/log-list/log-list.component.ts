@@ -17,6 +17,7 @@ import {SyncQueryParam} from "../../../core/decorators/syncParams.decorator";
 import {FormControl, FormGroup} from "@angular/forms";
 import {LogService} from "../../../core/service/log.service";
 import {FormSearchLogHelper} from "../../../core/helpers/formSearchLog.helper";
+import {LINK} from "../../../core/constants/url";
 
 @Component({
     selector: 'app-log-list',
@@ -27,6 +28,7 @@ export class LogListComponent implements OnInit {
     @SyncQueryParam({
         parseIgnore: ["status"],
     })
+    LINK = LINK
     public formSearchAndFilter: FormGroup;
     pageTitle: BreadcrumbItem[] = [];
     limit: any

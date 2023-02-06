@@ -58,7 +58,7 @@
                                 <small>Vị trí: {{ i.geoIP?.region + '-' + i.geoIP?.country}}</small>
                             </td>
                             <td>
-                                <p class="m-0">{{'https://crm.bachdangtuan.click/api/v1' + i.url}}</p>
+                                <p class="m-0">{{LINK + '/api/v1' + i.url}}</p>
                             </td>
                             <td class="text-center">
                                 <p class="badge fs-18" [ngClass]="{
