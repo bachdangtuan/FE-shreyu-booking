@@ -23,10 +23,12 @@
 //     CREATE_TRIP: "http://localhost:5000/api/v1/trips/create-trip",
 //     LIST_TRIP: "http://localhost:5000/api/v1/trips/list-trips",
 //     IMPORT_TRIP: "http://localhost:5000/api/v1/trips/import-trip",
+//
+//     LIST_LOG: `http://localhost:5001/api/v1/logging`,
 // }
 
-export const LINK = 'https://api-dev.bachdangtuan.click'
-export const LINK2 = "https://logger.bachdangtuan.click"
+export const LINK = 'https://api-dev.dangtuan.site'
+export const LINK2 = "https://logger.dangtuan.site"
 
 
 export const API_URL = {

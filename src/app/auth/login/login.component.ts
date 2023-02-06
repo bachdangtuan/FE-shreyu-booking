@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.loginForm = this.fb.group({
-            username: ['admin', [Validators.required]],
-            password: ['123123', Validators.required]
+            username: ['0934010704', [Validators.required]],
+            password: ['123456', Validators.required]
         });
 
         // reset login status
