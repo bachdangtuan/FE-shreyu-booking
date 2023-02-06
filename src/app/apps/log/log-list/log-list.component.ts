@@ -28,8 +28,8 @@ export class LogListComponent implements OnInit {
     @SyncQueryParam({
         parseIgnore: ["status"],
     })
-    LINK = LINK
     public formSearchAndFilter: FormGroup;
+    LINK = LINK
     pageTitle: BreadcrumbItem[] = [];
     limit: any
     pageCurrent: any
@@ -62,7 +62,7 @@ export class LogListComponent implements OnInit {
 
     getLogList() {
         const params$ = this.route.queryParams;
-        // console.log('params$', params$)
+        console.log('params$', params$)
         params$.subscribe(param => {
             this.LogService.getListLogging(param).subscribe(res => {
                 this.totalItems = res?.totalItems
