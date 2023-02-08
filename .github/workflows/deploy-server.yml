@@ -44,6 +44,14 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
             sudo docker run -d -p 4200:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
             sudo docker run -d -p 4201:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
-            
+            sudo docker run -d -p 4202:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4203:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4204:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4205:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4206:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4207:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4208:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker run -d -p 4209:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest            
+            sudo docker run -d -p 4210:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest              
             
             echo "Hoàn thành chế độ"
