@@ -21,14 +21,9 @@ jobs:
       - name: Build the Docker image 1
         run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
 
-      - name: Build the Docker image 2
-        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}2/sheryu-frontend-app
-
       - name: Docker Push 1
         run: docker push ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
 
-      - name: Docker Push 2
-        run: docker push ${{ secrets.DOCKER_USERNAME }}2/sheryu-frontend-app
 
       - name: SSH to server GCP
         uses: appleboy/ssh-action@master
@@ -50,8 +45,8 @@ jobs:
             sudo docker run -d -p 4200:4200 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
             
             echo "Pull images mới"
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}2/sheryu-frontend-app
-            sudo docker run -d -p 4201:4201 ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app:latest
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/sheryu-frontend-app
+            sudo docker run -d -p 4201:4201 ${{ secrets.DOCKER_USERNAME }}2/sheryu-frontend-app:latest
             
             
             echo "Hoàn thành chế độ"
