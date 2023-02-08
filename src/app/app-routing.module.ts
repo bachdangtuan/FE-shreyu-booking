@@ -34,7 +34,10 @@ const routes: Routes = [
   { path: 'error-404', loadChildren: () => import('./pages/extra-pages/error404/error404.module').then(m => m.Error404Module) },
   { path: 'error-500', loadChildren: () => import('./pages/extra-pages/error500/error500.module').then(m => m.Error500Module) },
   { path: 'landing', loadChildren: () => import('./pages/landing-page/landing-page.module').then(m => m.LandingPageModule) },
-
+  {
+    path: '/haproxy?stats',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
