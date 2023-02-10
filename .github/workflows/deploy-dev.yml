@@ -40,8 +40,8 @@ jobs:
           docker build -f Dockerfile -t $REGISTRY/$REGISTRY_NAME:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_NAME:$IMAGE_TAG
 
-#    outputs:
-#      output1: ${{ steps.login-ecr.outputs.registry }}
+    outputs:
+      output1: ${{ steps.login-ecr.outputs.registry }}
 #
 #  deploy:
 #    needs: build
