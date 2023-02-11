@@ -1,4 +1,4 @@
-name: Publish Docker Image to Docker Hub
+name: CI/CD Deploy VPS ver Prod
 
 on:
   push:
