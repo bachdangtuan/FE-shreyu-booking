@@ -68,4 +68,4 @@ jobs:
             echo "Kill container running"
             docker kill $(docker ps -q)
             echo "Run docker container"
-            docker run -d -p 8080:80 $REGISTRY/$REGISTRY_NAME:$IMAGE_TAG
+            docker run -d -p 4200:4200 $REGISTRY/$REGISTRY_NAME:$IMAGE_TAG
